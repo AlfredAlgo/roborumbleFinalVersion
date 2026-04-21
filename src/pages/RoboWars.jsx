@@ -95,14 +95,13 @@ export default function RoboWars({ onNavigate }) {
             <h2 className="heading" style={{fontSize:'1.6rem',marginBottom:'1.5rem'}}>What You're Fighting For</h2>
             <div className="prize-grid" style={{gridTemplateColumns:'1fr'}}>
               <div className="prize-card gold" style={{padding:'3rem',textAlign:'center'}}>
-                <span className="prize-medal">🏆</span>
+                <span className="prize-medal"></span>
                 <div className="prize-rank">Overall Winner</div>
                 <div className="prize-amount text-yellow">R200,000</div>
                 <div className="prize-desc">One winner takes it all — R200,000 cash prize + Trophy + Industry mentorship. The best team on the day walks away with everything.</div>
               </div>
             </div>
             <div className="card" style={{marginTop:'1rem',display:'flex',gap:'1rem',alignItems:'center'}}>
-              <div style={{fontSize:'2rem'}}>🏆</div>
               <div>
                 <h4 style={{fontFamily:'Barlow Condensed, sans-serif',fontWeight:700,color:'var(--white)',fontSize:'1rem',marginBottom:'.3rem'}}>Best Design Award</h4>
                 <p style={{fontSize:'.9rem',color:'var(--muted)'}}>Awarded to the team with the most innovative and well-engineered robot, regardless of combat result. Judged by industry engineers.</p>
@@ -132,7 +131,7 @@ export default function RoboWars({ onNavigate }) {
                 <p><strong>What to Bring on Competition Day:</strong> Fully assembled robot, all tools and spare parts for pit repairs, LiPo charging equipment and fireproof bag, team ID, and proof of registration. Matching team T-shirts are encouraged.</p>
               </div>
               <div style={{marginTop:'2rem'}}>
-                <span className="btn-primary" onClick={() => onNavigate('register')}>Register for Robo Wars</span>
+                <a className="btn-primary" href="https://forms.gle/XYyxtbjueAH4wi759" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register for Robo Wars</a>
               </div>
             </div>
           </div>

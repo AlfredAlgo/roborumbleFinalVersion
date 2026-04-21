@@ -69,7 +69,7 @@ export default function GrandPrix({ onNavigate }) {
               <h2 className="heading" style={{fontSize:'1.6rem',marginBottom:'1.5rem'}}>Podium Prizes</h2>
               <div className="prize-grid" style={{gridTemplateColumns:'1fr'}}>
                 <div className="prize-card gold" style={{padding:'3rem',textAlign:'center'}}>
-                  <span className="prize-medal">🏆</span>
+                  <span className="prize-medal"></span>
                   <div className="prize-rank">Overall Winner</div>
                   <div className="prize-amount text-yellow">R200,000</div>
                   <div className="prize-desc">One winner takes it all — R200,000 cash prize + Trophy + Industry exposure. The fastest, smartest team wins everything.</div>
@@ -81,7 +81,7 @@ export default function GrandPrix({ onNavigate }) {
           <hr className="rule" />
 
           <div className="reveal">
-            <span className="btn-primary" onClick={() => onNavigate('register')}>Register for Grand Prix</span>
+            <a className="btn-primary" href="https://forms.gle/XYyxtbjueAH4wi759" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register for Grand Prix</a>
           </div>
         </div>
       </section>

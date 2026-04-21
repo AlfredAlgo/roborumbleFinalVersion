@@ -62,7 +62,7 @@ export default function Partner({ onNavigate }) {
       <section className="event-hero">
         <div className="event-hero-bg" />
         <div className="wrap">
-          <span className="event-hero-icon">🤝</span>
+
           <span className="label">Partnerships & Sponsorship</span>
           <h1>Invest in the<br /><span>Next Generation.</span></h1>
           <p>Partner with RoboRumble to put your brand in front of South Africa's most driven young engineers, technologists, and innovators — at exactly the moment they're building their careers.</p>
@@ -139,18 +139,18 @@ export default function Partner({ onNavigate }) {
               <h2 className="heading" style={{fontSize:'1.6rem',marginBottom:'1.2rem'}}>Ready to Partner?</h2>
               <p className="body" style={{marginBottom:'1.5rem'}}>We'd love to discuss a partnership that works for your brand and budget. Custom packages are available for organisations with specific objectives.</p>
               <div className="card" style={{marginBottom:'1rem'}}>
-                <p style={{fontSize:'.9rem',color:'var(--text)',marginBottom:'.4rem'}}>📧 info@roborumble.co.za</p>
-                <p style={{fontSize:'.9rem',color:'var(--text)',marginBottom:'.4rem'}}>💬 discord.gg/aeTpRuPzcb</p>
-                <p style={{fontSize:'.9rem',color:'var(--text)'}}>📱 +27 [XX XXX XXXX]</p>
+                <p style={{fontSize:'.9rem',color:'var(--text)',marginBottom:'.4rem'}}>info@roborumble.co.za</p>
+                <p style={{fontSize:'.9rem',color:'var(--text)',marginBottom:'.4rem'}}>discord.gg/aeTpRuPzcb</p>
+                <p style={{fontSize:'.9rem',color:'var(--text)'}}>+27 [XX XXX XXXX]</p>
               </div>
             </div>
             <div style={{paddingTop:'2rem'}}>
               <div className="info-box" style={{marginBottom:'1.5rem'}}>
-                <h5>📋 Sponsorship Prospectus</h5>
+                <h5>Sponsorship Prospectus</h5>
                 <p>A full sponsorship prospectus with detailed reach metrics, audience demographics, and activation ideas is available on request. Contact us to receive it.</p>
               </div>
               <div className="info-box">
-                <h5>⏰ Deadline</h5>
+                <h5>Deadline</h5>
                 <p>Partnership slots are limited and allocated on a first-come basis. Title Sponsor naming rights are exclusive — only one available.</p>
               </div>
             </div>

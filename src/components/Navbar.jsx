@@ -49,7 +49,7 @@ export default function Navbar({ currentPage, onNavigate }) {
             {l.label}
           </span>
         ))}
-        <span className="nav-register" onClick={() => handleNav('register')}>Register</span>
+        <a className="nav-register" href="https://forms.gle/XYyxtbjueAH4wi759" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register</a>
       </div>
 
       <div className="nav-mobile-btn" onClick={() => setMobileOpen((v) => !v)}>

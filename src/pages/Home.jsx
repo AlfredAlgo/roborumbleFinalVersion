@@ -6,6 +6,9 @@ import robotwarsBg from '../assets/robotwars.png';
 import grandprixBg from '../assets/grandprix.png';
 import droneracingBg from '../assets/droneracing.png';
 import technomaniaBg from '../assets/technomania.png';
+import ulLogo from '../assets/ul-logo.svg';
+
+const GOOGLE_FORM = 'https://forms.gle/XYyxtbjueAH4wi759';
 
 const EVENT_DATE = new Date('2026-09-17T08:00:00');
 
@@ -124,13 +127,14 @@ export default function Home({ onNavigate }) {
             </h1>
             <p className="hero-subtitle">4 Competitions · 1 National Stage · Unlimited Potential</p>
             <div className="hero-meta">
-              <span className="hero-meta-item">📅 17 September 2026</span>
-              <span className="hero-meta-item">📍 University of Limpopo</span>
-              <span className="hero-meta-item">🎓 Schools · TVETs · Universities</span>
-              <span className="hero-meta-item">👥 Max 4 Members</span>
+              <span className="hero-meta-item">17 September 2026</span>
+              <span className="hero-meta-item">University of Limpopo</span>
+              <span className="hero-meta-item">Schools · TVETs · Universities</span>
+              <span className="hero-meta-item">Max 4 Members</span>
             </div>
             <div className="hero-btns">
-              <span className="btn-primary" onClick={() => onNavigate('register')}>Register Your Team — Free</span>
+              <a className="btn-primary" href={GOOGLE_FORM} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register Your Team — Free</a>
+              <a className="btn-outline" href="https://discord.gg/aeTpRuPzcb" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Join our Discord</a>
             </div>
             <HeroCountdown />
           </div>
@@ -204,13 +208,13 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* SPONSORS */}
+      {/* IMPLEMENTING PARTNERS */}
       <div className="wrap">
         <div className="sponsors-bar reveal">
           <div className="sponsors-inner">
-            <span className="sponsor-label">Partners & Sponsors</span>
+            <span className="sponsor-label" style={{fontSize:'1rem',letterSpacing:'.2em'}}>Implementing Partners</span>
+            <img src={ulLogo} alt="University of Limpopo" style={{height:'60px',width:'auto',objectFit:'contain'}} />
             <span className="sponsor-logo">ALGORHYTHMLAB</span>
-            <span className="sponsor-logo">YOUR BRAND HERE</span>
           </div>
         </div>
       </div>
@@ -282,7 +286,7 @@ export default function Home({ onNavigate }) {
               Registration is now open for 17 September 2026. One winner. One stage. R200,000 cash on the line.
             </p>
             <div style={{ display:'flex', gap:'1rem', justifyContent:'center', flexWrap:'wrap' }}>
-              <span className="btn-primary" onClick={() => onNavigate('register')}>Register Now — It's Free</span>
+              <a className="btn-primary" href={GOOGLE_FORM} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register Now — It's Free</a>
               <span className="btn-outline" onClick={() => onNavigate('partner')}>Become a Partner</span>
             </div>
           </div>

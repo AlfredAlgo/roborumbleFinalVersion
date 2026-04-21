@@ -51,7 +51,7 @@ export default function Technomania({ onNavigate }) {
                 ))}
               </div>
               <div className="info-box">
-                <h5>⚡ Industry Challenge</h5>
+                <h5>Industry Challenge</h5>
                 <p>Industry engineers set the challenge and judge the solutions. Top teams may receive mentorship and exposure opportunities beyond the competition.</p>
               </div>
             </div>
@@ -103,14 +103,13 @@ export default function Technomania({ onNavigate }) {
             <h2 className="heading" style={{fontSize:'1.6rem',marginBottom:'1.5rem'}}>What You're Building For</h2>
             <div className="prize-grid" style={{gridTemplateColumns:'1fr'}}>
               <div className="prize-card gold" style={{padding:'3rem',textAlign:'center'}}>
-                <span className="prize-medal">🏆</span>
+                <span className="prize-medal"></span>
                 <div className="prize-rank">Overall Winner</div>
                 <div className="prize-amount text-yellow">R200,000</div>
                 <div className="prize-desc">One winner takes it all — R200,000 cash prize + Trophy + Industry mentorship. Build the best solution. Win everything.</div>
               </div>
             </div>
             <div className="card" style={{marginTop:'1rem',display:'flex',gap:'1rem',alignItems:'center'}}>
-              <div style={{fontSize:'2rem'}}>🌍</div>
               <div>
                 <h4 style={{fontFamily:'Barlow Condensed, sans-serif',fontWeight:700,color:'var(--white)',fontSize:'1rem',marginBottom:'.3rem'}}>Best Impact Award</h4>
                 <p style={{fontSize:'.9rem',color:'var(--muted)'}}>Awarded to the team whose solution shows the greatest potential for real-world deployment and social or business impact. </p>
@@ -121,7 +120,7 @@ export default function Technomania({ onNavigate }) {
           <hr className="rule" />
 
           <div className="reveal">
-            <span className="btn-primary" onClick={() => onNavigate('register')}>Register for Technomania</span>
+            <a className="btn-primary" href="https://forms.gle/XYyxtbjueAH4wi759" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register for Technomania</a>
           </div>
         </div>
       </section>

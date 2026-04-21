@@ -94,7 +94,7 @@ export default function Drone({ onNavigate }) {
             <h2 className="heading" style={{fontSize:'1.6rem',marginBottom:'1.5rem'}}>What You're Flying For</h2>
             <div className="prize-grid" style={{gridTemplateColumns:'1fr'}}>
               <div className="prize-card gold" style={{padding:'3rem',textAlign:'center'}}>
-                <span className="prize-medal">🏆</span>
+                <span className="prize-medal"></span>
                 <div className="prize-rank">Overall Winner</div>
                 <div className="prize-amount text-yellow">R200,000</div>
                 <div className="prize-desc">One winner takes it all — R200,000 cash prize + Trophy + Industry mentorship. Fly your way to the top.</div>
@@ -125,7 +125,7 @@ export default function Drone({ onNavigate }) {
                 <p><strong>What to Bring on Competition Day:</strong> Fully built and tested drone, spare propellers and motors, LiPo batteries and fireproof bag, charging equipment, laptop with your code, team ID and proof of registration.</p>
               </div>
               <div style={{marginTop:'2rem'}}>
-                <span className="btn-primary" onClick={() => onNavigate('register')}>Register for Drone Racing</span>
+                <a className="btn-primary" href="https://forms.gle/XYyxtbjueAH4wi759" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register for Drone Racing</a>
               </div>
             </div>
           </div>
