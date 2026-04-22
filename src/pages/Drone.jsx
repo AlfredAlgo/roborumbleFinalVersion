@@ -17,7 +17,7 @@ export default function Drone({ onNavigate }) {
           </h1>
           <p>Build and fly an autonomous drone through a 3D racecourse using sensors, vision, and smart decision-making. The fastest, most precise team takes the trophy.</p>
           <div className="event-hero-meta">
-            {['Autonomous Flight','Computer Vision','Max 4 Members','17 September 2026'].map(t => (
+            {['Autonomous Flight','Computer Vision','Max 4 Members','12 September 2026'].map(t => (
               <div className="event-meta-pill" key={t}><span className="dot" />{t}</div>
             ))}
           </div>
@@ -114,7 +114,7 @@ export default function Drone({ onNavigate }) {
                   ['02','Select Drone Racing','Choose "Drone Racing" as your category during registration.'],
                   ['03','Join Discord','Connect at discord.gg/aeTpRuPzcb — rules and updates live here.'],
                   ['04','Build & Test','Use the spec document to build your autonomous drone. Test extensively.'],
-                  ['05','Fly to Win','Arrive at the University of Limpopo on 17 September 2026. Practice runs available before scoring.'],
+                  ['05','Fly to Win','Arrive at the University of Limpopo on 12 September 2026. Practice runs available before scoring.'],
                 ].map(([n,h,p]) => (
                   <div className="step" key={n}><div className="step-num">{n}</div><div className="step-content"><h4>{h}</h4><p>{p}</p></div></div>
                 ))}

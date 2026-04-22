@@ -118,7 +118,7 @@ export default function Home({ onNavigate }) {
           <div className="hero-content">
             <div className="hero-eyebrow">
               <span className="hero-eyebrow-dot" />
-              <span>Registration Now Open · 17 September 2026</span>
+              <span>Registration Now Open · 12 September 2026</span>
             </div>
             <h1 className="hero-title">
               <span className="line1">AFRICA'S</span>
@@ -127,7 +127,7 @@ export default function Home({ onNavigate }) {
             </h1>
             <p className="hero-subtitle">4 Competitions · 1 National Stage · Unlimited Potential</p>
             <div className="hero-meta">
-              <span className="hero-meta-item">17 September 2026</span>
+              <span className="hero-meta-item">12 September 2026</span>
               <span className="hero-meta-item">University of Limpopo</span>
               <span className="hero-meta-item">Schools · TVETs · Universities</span>
               <span className="hero-meta-item">Max 4 Members</span>
@@ -233,8 +233,8 @@ export default function Home({ onNavigate }) {
               ['02','Choose Your Category','Select from Robo Wars, RoboGrand Prix, Drone Racing, or Technomania — one category per team.'],
               ['03','Join Discord','Get access to your category channel for rules, updates, and pre-event communications at discord.gg/aeTpRuPzcb'],
               ['04','Build & Prepare','Use the technical specs and rules to design, build, and test your entry. All builds must comply with category rules.'],
-              ['05','Compete','Arrive at the University of Limpopo on 17 September 2026 with your fully built entry, tools, and team ID.'],
-              ['06','Win R200,000','One overall winner takes home R200,000 cash. Compete across your category and prove your team is the best.'],
+              ['05','Compete','Arrive at the University of Limpopo on 12 September 2026 with your fully built entry, tools, and team ID.'],
+              ['06','Win prices','Catagory winners recieve a share of prices valued at R700,000.'],
             ].map(([n,h,p]) => (
               <div className="card reveal" key={n}>
                 <div style={{ fontFamily:'Orbitron, monospace', fontWeight:900, fontSize:'2rem', color:'var(--red)', opacity:.3, marginBottom:'.8rem' }}>{n}</div>
@@ -259,14 +259,14 @@ export default function Home({ onNavigate }) {
                 ['Who can enter RoboRumble?', 'Any currently enrolled student at an African school, TVET college, or university. Teams must be from the same institution.'],
                 ['How many people per team?', 'Minimum 1, maximum 4 members. All members must be from the same institution. Registration is completely free.'],
                 ['Can we enter multiple categories?', 'No — each team may only register for one competition category. However, multiple teams from the same institution can each enter different categories.'],
-                ['When is the registration deadline?', 'Registration closes prior to the event on 17 September 2026. Exact deadline will be communicated via Discord and our website.'],
+                ['When is the registration deadline?', 'Registration closes prior to the event on 12 September 2026. Exact deadline will be communicated via Discord and our website.'],
               ].map(([q,a]) => <FaqItem key={q} q={q} a={a} />)}
             </div>
             <div>
               {[
                 ['Is registration really free?', 'Yes — entry to RoboRumble 2026 is completely free for all teams. There is no registration fee. Just sign up, pick your category, and compete.'],
                 ['What happens after we register?', 'Within 48 hours, you will receive a confirmation email with your team reference number. A Discord invite with your category channel follows in week 1.'],
-                ['Where will the event be held?', 'The event will be held at the University of Limpopo on 17 September 2026.'],
+                ['Where will the event be held?', 'The event will be held at the University of Limpopo on 12 September 2026.'],
                 ['What if our robot breaks at the event?', 'You will have access to a pit area between rounds to make repairs. Bring spare parts, tools, and a charging kit.'],
               ].map(([q,a]) => <FaqItem key={q} q={q} a={a} />)}
             </div>
@@ -283,7 +283,7 @@ export default function Home({ onNavigate }) {
               Your Team. Your Build.<br /><span style={{ color:'var(--red)' }}>One National Stage.</span>
             </h2>
             <p className="body" style={{ marginBottom:'2rem' }}>
-              Registration is now open for 17 September 2026. One winner. One stage. R200,000 cash on the line.
+              Registration is now open for 12 September 2026. One winner. One stage. R200,000 cash on the line.
             </p>
             <div style={{ display:'flex', gap:'1rem', justifyContent:'center', flexWrap:'wrap' }}>
               <a className="btn-primary" href={GOOGLE_FORM} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register Now — It's Free</a>
