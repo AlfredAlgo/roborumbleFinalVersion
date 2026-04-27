@@ -7,6 +7,7 @@ import grandprixBg from '../assets/grandprix.png';
 import droneracingBg from '../assets/droneracing.png';
 import technomaniaBg from '../assets/technomania.png';
 import ulLogo from '../assets/ul-logo.svg';
+import algoAtWorkLogo from '../assets/algoatwork-logo.jpg';
 
 const GOOGLE_FORM = 'https://forms.gle/XYyxtbjueAH4wi759';
 
@@ -214,7 +215,7 @@ export default function Home({ onNavigate }) {
           <div className="sponsors-inner">
             <span className="sponsor-label" style={{fontSize:'1rem',letterSpacing:'.2em'}}>Implementing Partners</span>
             <img src={ulLogo} alt="University of Limpopo" style={{height:'60px',width:'auto',objectFit:'contain'}} />
-            <span className="sponsor-logo">ALGORHYTHMLAB</span>
+            <img src={algoAtWorkLogo} alt="AlgoAtWork by algorhythmlab" style={{height:'60px',width:'auto',objectFit:'contain'}} />
           </div>
         </div>
       </div>
