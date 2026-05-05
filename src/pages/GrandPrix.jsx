@@ -70,8 +70,8 @@ export default function GrandPrix({ onNavigate }) {
               <div className="prize-grid" style={{gridTemplateColumns:'1fr'}}>
                 <div className="prize-card gold" style={{padding:'3rem',textAlign:'center'}}>
                   <span className="prize-medal"></span>
-                  <div className="prize-rank">Overall Winner</div>
-                  <div className="prize-amount text-yellow">R200,000</div>
+                  <div className="prize-rank">Overall Winners</div>
+                  <div className="prize-amount text-yellow">WIN BIG!</div>
                   <div className="prize-desc">One winner takes it all — R200,000 cash prize + Trophy + Industry exposure. The fastest, smartest team wins everything.</div>
                 </div>
               </div>
