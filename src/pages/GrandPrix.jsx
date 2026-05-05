@@ -40,7 +40,7 @@ export default function GrandPrix({ onNavigate }) {
                 ))}
               </div>
               <div className="highlight-panel" style={{marginTop:'1.5rem'}}>
-                <p><strong>The Track:</strong> Clearly marked lane lines, curves, chicanes, intersections requiring decision logic, and [X] static obstacles placed at undisclosed locations — revealed on competition day only.</p>
+                <p><strong>The Track:</strong> Clearly marked lane lines, curves, chicanes, intersections requiring decision logic, and 4 static obstacles placed at undisclosed locations — revealed on competition day only.</p>
               </div>
             </div>
           </div>
