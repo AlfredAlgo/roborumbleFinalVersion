@@ -35,7 +35,7 @@ export default function GrandPrix({ onNavigate }) {
             </div>
             <div>
               <div className="spec-grid">
-                {[['Max Footprint','[X]×[X] cm'],['Max Weight','[X] kg'],['Control','Fully Auto'],['Power','Battery Only'],['Platforms','Arduino/RPi/STM'],['Fee','Free']].map(([l,v]) => (
+                {[['Max Footprint','50 × 50 cm'],['Max Weight','5kg'],['Control','Fully Auto'],['Power','Battery Only'],['Platforms','Arduino/RPi/STM'],['Fee','Free']].map(([l,v]) => (
                   <div className="spec-box" key={l}><div className="spec-label">{l}</div><div className="spec-value">{v}</div></div>
                 ))}
               </div>
