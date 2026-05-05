@@ -141,7 +141,7 @@ export default function Partner({ onNavigate }) {
               <div className="card" style={{marginBottom:'1rem'}}>
                 <p style={{fontSize:'.9rem',color:'var(--text)',marginBottom:'.4rem'}}>info@roborumble.co.za</p>
                 <p style={{fontSize:'.9rem',color:'var(--text)',marginBottom:'.4rem'}}>discord.gg/aeTpRuPzcb</p>
-                <p style={{fontSize:'.9rem',color:'var(--text)'}}>+27 [XX XXX XXXX]</p>
+                <p style={{fontSize:'.9rem',color:'var(--text)'}}>0[11 576 83355]</p>
               </div>
             </div>
             <div style={{paddingTop:'2rem'}}>
