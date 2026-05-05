@@ -105,7 +105,7 @@ export default function Technomania({ onNavigate }) {
               <div className="prize-card gold" style={{padding:'3rem',textAlign:'center'}}>
                 <span className="prize-medal"></span>
                 <div className="prize-rank">Overall Winner</div>
-                <div className="prize-amount text-yellow">R200,000</div>
+                <div className="prize-amount text-yellow">WIN BIG!</div>
                 <div className="prize-desc">One winner takes it all — R200,000 cash prize + Trophy + Industry mentorship. Build the best solution. Win everything.</div>
               </div>
             </div>
