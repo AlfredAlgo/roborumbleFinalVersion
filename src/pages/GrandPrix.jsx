@@ -72,7 +72,7 @@ export default function GrandPrix({ onNavigate }) {
                   <span className="prize-medal"></span>
                   <div className="prize-rank">Overall Winners</div>
                   <div className="prize-amount text-yellow">WIN BIG!</div>
-                  <div className="prize-desc">One winner takes it all — R200,000 cash prize + Trophy + Industry exposure. The fastest, smartest team wins everything.</div>
+                  <div className="prize-desc">Ignite your next move with epic prizes.</div>
                 </div>
               </div>
             </div>
