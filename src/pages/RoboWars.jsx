@@ -40,7 +40,7 @@ export default function RoboWars({ onNavigate }) {
             </div>
             <div>
               <div className="spec-grid">
-                {[['Max Footprint','[X]×[X] cm'],['Max Weight','[X] kg'],['Control','Remote / RC'],['Weapons','Allowed'],['Power','Battery Only'],['Fee','Free']].map(([l,v]) => (
+                {[['Max Footprint','50 × 50 cm'],['Max Weight','10 kg'],['Control','Remote / RC'],['Weapons','Allowed'],['Power','Battery Only'],['Fee','Free']].map(([l,v]) => (
                   <div className="spec-box" key={l}><div className="spec-label">{l}</div><div className="spec-value">{v}</div></div>
                 ))}
               </div>
@@ -97,8 +97,8 @@ export default function RoboWars({ onNavigate }) {
               <div className="prize-card gold" style={{padding:'3rem',textAlign:'center'}}>
                 <span className="prize-medal"></span>
                 <div className="prize-rank">Overall Winner</div>
-                <div className="prize-amount text-yellow">R200,000</div>
-                <div className="prize-desc">One winner takes it all — R200,000 cash prize + Trophy + Industry mentorship. The best team on the day walks away with everything.</div>
+                <div className="prize-amount text-yellow">WIN BIG!</div>
+                <div className="prize-desc">Ignite your next move with epic prizes.</div>
               </div>
             </div>
             <div className="card" style={{marginTop:'1rem',display:'flex',gap:'1rem',alignItems:'center'}}>
