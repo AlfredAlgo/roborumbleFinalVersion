@@ -11,7 +11,7 @@ import algoAtWorkLogo from '../assets/algoatwork-logo.jpg';
 
 const GOOGLE_FORM = 'https://forms.gle/XYyxtbjueAH4wi759';
 
-const EVENT_DATE = new Date('2026-09-17T08:00:00');
+const EVENT_DATE = new Date('2026-08-10T08:00:00');
 
 function useCountdown() {
   const calc = () => {
@@ -39,10 +39,10 @@ function HeroCountdown() {
   return (
     <div style={{ marginTop: '2rem' }}>
       <div style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '.65rem', letterSpacing: '.3em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '.8rem' }}>
-        Event Starts In
+        Eliminations Begin In
       </div>
       <div style={{ display: 'inline-flex', alignItems: 'stretch', border: '1px solid var(--border2)', overflow: 'hidden' }}>
-        {units.map(([label, val], i) => (
+        {[units.map](http://units.map)(([label, val], i) => (
           <div key={label} style={{ display: 'flex', alignItems: 'stretch' }}>
             {i > 0 && (
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 .5rem', color: 'var(--red)', fontFamily: 'Orbitron, monospace', fontSize: '1.4rem', fontWeight: 900, background: 'var(--panel)', borderLeft: '1px solid var(--border2)', borderRight: '1px solid var(--border2)' }}>:</div>
@@ -57,6 +57,7 @@ function HeroCountdown() {
     </div>
   );
 }
+    
 
 function FlipCard({ event, onNavigate }) {
   const bgMap = { robowars: robotwarsBg, grandprix: grandprixBg, drone: droneracingBg, technomania: technomaniaBg };
@@ -235,7 +236,7 @@ export default function Home({ onNavigate }) {
               ['03','Join Discord','Get access to your category channel for rules, updates, and pre-event communications at discord.gg/aeTpRuPzcb'],
               ['04','Build & Prepare','Use the technical specs and rules to design, build, and test your entry. All builds must comply with category rules.'],
               ['05','Compete','Arrive at the University of Limpopo on 12 September 2026 with your fully built entry, tools, and team ID.'],
-              ['06','Win prices','Catagory winners recieve a share of prices valued at R700,000.'],
+              ['06','Win prizes','Catagory winners recieve a share of prizes valued at R500,000.'],
             ].map(([n,h,p]) => (
               <div className="card reveal" key={n}>
                 <div style={{ fontFamily:'Orbitron, monospace', fontWeight:900, fontSize:'2rem', color:'var(--red)', opacity:.3, marginBottom:'.8rem' }}>{n}</div>
@@ -284,7 +285,7 @@ export default function Home({ onNavigate }) {
               Your Team. Your Build.<br /><span style={{ color:'var(--red)' }}>One National Stage.</span>
             </h2>
             <p className="body" style={{ marginBottom:'2rem' }}>
-              Registration is now open for 12 September 2026. One winner. One stage. R200,000 cash on the line.
+              Registration is now open for 12 September 2026. One winner. One stage. 
             </p>
             <div style={{ display:'flex', gap:'1rem', justifyContent:'center', flexWrap:'wrap' }}>
               <a className="btn-primary" href={GOOGLE_FORM} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register Now — It's Free</a>
