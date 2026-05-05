@@ -72,8 +72,8 @@ export default function RoboWars({ onNavigate }) {
               <span className="label">Robot Rules Summary</span>
               <h2 className="heading" style={{fontSize:'1.6rem',marginBottom:'1.2rem'}}>Build Requirements</h2>
               <div className="card" style={{marginBottom:'1rem'}}>
-                {[['Weight Limit','Maximum [X] kg fully assembled including battery.'],
-                  ['Footprint','Must fit within a [X]×[X] cm starting box.'],
+                {[['Weight Limit','Maximum  5kg fully assembled including battery.'],
+                  ['Footprint','Must fit within a 50 × 50 cm starting box.'],
                   ['Power','Battery-powered only. LiPo batteries must be in a fireproof bag.'],
                   ['Weapons','Active weapons are permitted within defined safe limits. No projectiles.'],
                   ['Remote Control','2.4GHz RC systems only. No autonomous control permitted.'],
