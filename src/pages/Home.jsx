@@ -42,7 +42,7 @@ function HeroCountdown() {
         Eliminations Begin In
       </div>
       <div style={{ display: 'inline-flex', alignItems: 'stretch', border: '1px solid var(--border2)', overflow: 'hidden' }}>
-        {[units.map](http://units.map)(([label, val], i) => (
+        {units.map(([label, val], i) => (
           <div key={label} style={{ display: 'flex', alignItems: 'stretch' }}>
             {i > 0 && (
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 .5rem', color: 'var(--red)', fontFamily: 'Orbitron, monospace', fontSize: '1.4rem', fontWeight: 900, background: 'var(--panel)', borderLeft: '1px solid var(--border2)', borderRight: '1px solid var(--border2)' }}>:</div>
