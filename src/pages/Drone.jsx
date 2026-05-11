@@ -12,7 +12,7 @@ export default function Drone({ onNavigate }) {
 
         {/* Discord button - top right */}
         <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2 }}>
-          
+          <a
             href="https://discord.gg/aeTpRuPzcb"
             target="_blank"
             rel="noopener noreferrer"
