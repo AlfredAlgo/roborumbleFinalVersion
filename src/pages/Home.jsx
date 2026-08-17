@@ -1,5 +1,4 @@
 import { useReveal } from '../hooks/useReveal';
-import { useState, useEffect } from 'react';
 import Footer from '../components/Footer';
 import FaqItem from '../components/FaqItem';
 import robotwarsBg from '../assets/robotwars.png';
@@ -8,55 +7,7 @@ import droneracingBg from '../assets/droneracing.png';
 import technomaniaBg from '../assets/technomania.png';
 import ulLogo from '../assets/ul-logo.svg';
 import algoAtWorkLogo from '../assets/algoatwork-logo.jpg';
-
-const GOOGLE_FORM = 'https://forms.gle/XYyxtbjueAH4wi759';
-
-const EVENT_DATE = new Date('2026-08-10T08:00:00');
-
-function useCountdown() {
-  const calc = () => {
-    const diff = EVENT_DATE - Date.now();
-    if (diff <= 0) return { days: 0, hours: 0, mins: 0, secs: 0 };
-    return {
-      days:  Math.floor(diff / 86400000),
-      hours: Math.floor((diff % 86400000) / 3600000),
-      mins:  Math.floor((diff % 3600000)  / 60000),
-      secs:  Math.floor((diff % 60000)    / 1000),
-    };
-  };
-  const [time, setTime] = useState(calc);
-  useEffect(() => {
-    const id = setInterval(() => setTime(calc()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  return time;
-}
-
-function HeroCountdown() {
-  const { days, hours, mins, secs } = useCountdown();
-  const pad = (n) => String(n).padStart(2, '0');
-  const units = [['DAYS', days], ['HRS', hours], ['MIN', mins], ['SEC', secs]];
-  return (
-    <div style={{ marginTop: '2rem' }}>
-      <div style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '.65rem', letterSpacing: '.3em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '.8rem' }}>
-        Eliminations Begin In
-      </div>
-      <div style={{ display: 'inline-flex', alignItems: 'stretch', border: '1px solid var(--border2)', overflow: 'hidden' }}>
-        {units.map(([label, val], i) => (
-          <div key={label} style={{ display: 'flex', alignItems: 'stretch' }}>
-            {i > 0 && (
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 .5rem', color: 'var(--red)', fontFamily: 'Orbitron, monospace', fontSize: '1.4rem', fontWeight: 900, background: 'var(--panel)', borderLeft: '1px solid var(--border2)', borderRight: '1px solid var(--border2)' }}>:</div>
-            )}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '.8rem 1.2rem', background: i % 2 === 0 ? 'var(--panel)' : 'var(--panel2)', minWidth: '4.5rem' }}>
-              <span style={{ fontFamily: 'Orbitron, monospace', fontWeight: 900, fontSize: '2rem', color: 'var(--red)', lineHeight: 1, textShadow: '0 0 20px rgba(232,0,29,.5)' }}>{pad(val)}</span>
-              <span style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '.6rem', letterSpacing: '.25em', color: 'var(--muted)', marginTop: '.4rem' }}>{label}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import engenLogo from '../assets/engen-logo.png';
 
 function FlipCard({ event, onNavigate }) {
   const bgMap = { robowars: robotwarsBg, grandprix: grandprixBg, drone: droneracingBg, technomania: technomaniaBg };
@@ -172,10 +123,9 @@ export default function Home({ onNavigate }) {
               <span className="hero-meta-item">Max 4 Members</span>
             </div>
             <div className="hero-btns">
-              <a className="btn-primary" href={GOOGLE_FORM} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register Your Team — Free</a>
+              <span className="btn-primary" onClick={() => onNavigate('register')}>Submit Project — Free</span>
               <a className="btn-outline" href="https://discord.gg/aeTpRuPzcb" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Join our Discord</a>
             </div>
-            <HeroCountdown />
           </div>
         </div>
       </section>
@@ -254,6 +204,7 @@ export default function Home({ onNavigate }) {
             <span className="sponsor-label" style={{fontSize:'1rem',letterSpacing:'.2em'}}>Implementing Partners</span>
             <img src={ulLogo} alt="University of Limpopo" style={{height:'60px',width:'auto',objectFit:'contain'}} />
             <img src={algoAtWorkLogo} alt="AlgoAtWork by algorhythmlab" style={{height:'60px',width:'auto',objectFit:'contain'}} />
+            <img src={engenLogo} alt="Engen" style={{height:'60px',width:'auto',objectFit:'contain'}} />
           </div>
         </div>
       </div>
@@ -322,10 +273,10 @@ export default function Home({ onNavigate }) {
               Your Team. Your Build.<br /><span style={{ color:'var(--red)' }}>One National Stage.</span>
             </h2>
             <p className="body" style={{ marginBottom:'2rem' }}>
-              Registration is now open for 12 September 2026. One winner. One stage. 
+              Submissions are now open for 12 September 2026. One winner. One stage.
             </p>
             <div style={{ display:'flex', gap:'1rem', justifyContent:'center', flexWrap:'wrap' }}>
-              <a className="btn-primary" href={GOOGLE_FORM} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register Now — It's Free</a>
+              <span className="btn-primary" onClick={() => onNavigate('register')}>Submit Project — It's Free</span>
               <span className="btn-outline" onClick={() => onNavigate('partner')}>Become a Partner</span>
             </div>
           </div>

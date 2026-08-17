@@ -169,7 +169,7 @@ export default function RoboWars({ onNavigate }) {
                 <p><strong>What to Bring on Competition Day:</strong> Fully assembled robot, all tools and spare parts for pit repairs, LiPo charging equipment and fireproof bag, team ID, and proof of registration. Matching team T-shirts are encouraged.</p>
               </div>
               <div style={{marginTop:'2rem'}}>
-                <a className="btn-primary" href="https://forms.gle/XYyxtbjueAH4wi759" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register for Robo Wars</a>
+                <span className="btn-primary" onClick={() => onNavigate('register')}>Submit Project for Robo Wars</span>
               </div>
             </div>
           </div>

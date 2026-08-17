@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import logoImg from '../assets/logo.png';
+import engenLogoImg from '../assets/engen-logo.png';
 
 const links = [
   { id: 'home', label: 'Home' },
@@ -30,12 +31,18 @@ export default function Navbar({ currentPage, onNavigate }) {
     <nav id="navbar" style={{ background: scrolled ? 'rgba(6,6,8,.98)' : 'rgba(6,6,8,.92)' }}>
       <div
         onClick={() => handleNav('home')}
-        style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+        className="nav-logo-stack"
+        style={{ cursor: 'pointer' }}
       >
         <img
           src={logoImg}
           alt="Robo-Rumble"
-          style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
+          style={{ height: '42px', width: 'auto', objectFit: 'contain' }}
+        />
+        <img
+          src={engenLogoImg}
+          alt="Engen"
+          style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
         />
       </div>
 
@@ -49,7 +56,7 @@ export default function Navbar({ currentPage, onNavigate }) {
             {l.label}
           </span>
         ))}
-        <a className="nav-register" href="https://forms.gle/XYyxtbjueAH4wi759" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register</a>
+        <span className="nav-register" onClick={() => handleNav('register')} style={{cursor:'pointer'}}>Submit Project</span>
       </div>
 
       <div className="nav-mobile-btn" onClick={() => setMobileOpen((v) => !v)}>

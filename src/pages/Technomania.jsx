@@ -150,7 +150,7 @@ export default function Technomania({ onNavigate }) {
           </div>
           <hr className="rule" />
           <div className="reveal">
-            <a className="btn-primary" href="https://forms.gle/XYyxtbjueAH4wi759" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register for Technomania</a>
+            <span className="btn-primary" onClick={() => onNavigate('register')}>Submit Project for Technomania</span>
           </div>
         </div>
       </section>

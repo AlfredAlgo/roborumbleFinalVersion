@@ -119,7 +119,7 @@ export default function GrandPrix({ onNavigate }) {
           <hr className="rule" />
 
           <div className="reveal">
-            <a className="btn-primary" href="https://forms.gle/XYyxtbjueAH4wi759" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Register for Grand Prix</a>
+            <span className="btn-primary" onClick={() => onNavigate('register')}>Submit Project for Grand Prix</span>
           </div>
         </div>
       </section>
