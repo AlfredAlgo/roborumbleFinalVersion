@@ -206,6 +206,7 @@ export default function Home({ onNavigate }) {
             <img src={algoAtWorkLogo} alt="AlgoAtWork by algorhythmlab" style={{height:'60px',width:'auto',objectFit:'contain'}} />
             <img src={engenLogo} alt="Engen" style={{height:'60px',width:'auto',objectFit:'contain'}} />
           </div>
+          <p style={{textAlign:'center', marginTop:'1.2rem', color:'var(--muted)', fontSize:'.85rem'}}>RoboRumble is a proud partnership with Engen.</p>
         </div>
       </div>
 
