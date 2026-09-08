@@ -2,6 +2,7 @@ import { useReveal } from '../hooks/useReveal';
 import Footer from '../components/Footer';
 import FaqItem from '../components/FaqItem';
 import robotwarsBg from '../assets/robotwars.png';
+import { SUBMISSION_FORM_URL } from '../constants';
 
 export default function RoboWars({ onNavigate }) {
   useReveal();
@@ -169,7 +170,7 @@ export default function RoboWars({ onNavigate }) {
                 <p><strong>What to Bring on Competition Day:</strong> Fully assembled robot, all tools and spare parts for pit repairs, LiPo charging equipment and fireproof bag, team ID, and proof of registration. Matching team T-shirts are encouraged.</p>
               </div>
               <div style={{marginTop:'2rem'}}>
-                <span className="btn-primary" onClick={() => onNavigate('register')}>Submit Project for Robo Wars</span>
+                <a className="btn-primary" href={SUBMISSION_FORM_URL} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Submit Project for Robo Wars</a>
               </div>
             </div>
           </div>

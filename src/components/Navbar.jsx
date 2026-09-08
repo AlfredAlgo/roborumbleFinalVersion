@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import logoImg from '../assets/logo.png';
 import engenLogoImg from '../assets/engen-logo.png';
+import { SUBMISSION_FORM_URL } from '../constants';
 
 const links = [
   { id: 'home', label: 'Home' },
@@ -42,7 +43,7 @@ export default function Navbar({ currentPage, onNavigate }) {
         <img
           src={engenLogoImg}
           alt="Engen"
-          style={{ height: '20px', width: 'auto', objectFit: 'contain' }}
+          style={{ height: '42px', width: 'auto', objectFit: 'contain' }}
         />
       </div>
 
@@ -56,7 +57,7 @@ export default function Navbar({ currentPage, onNavigate }) {
             {l.label}
           </span>
         ))}
-        <span className="nav-register" onClick={() => handleNav('register')} style={{cursor:'pointer'}}>Submit Project</span>
+        <a className="nav-register" href={SUBMISSION_FORM_URL} target="_blank" rel="noopener noreferrer" style={{cursor:'pointer',textDecoration:'none'}}>Submit Project</a>
       </div>
 
       <div className="nav-mobile-btn" onClick={() => setMobileOpen((v) => !v)}>

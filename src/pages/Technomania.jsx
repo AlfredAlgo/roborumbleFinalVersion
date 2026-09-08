@@ -1,6 +1,7 @@
 import { useReveal } from '../hooks/useReveal';
 import Footer from '../components/Footer';
 import technomaniaBg from '../assets/technomania.png';
+import { SUBMISSION_FORM_URL } from '../constants';
 export default function Technomania({ onNavigate }) {
   useReveal();
   return (
@@ -150,7 +151,7 @@ export default function Technomania({ onNavigate }) {
           </div>
           <hr className="rule" />
           <div className="reveal">
-            <span className="btn-primary" onClick={() => onNavigate('register')}>Submit Project for Technomania</span>
+            <a className="btn-primary" href={SUBMISSION_FORM_URL} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Submit Project for Technomania</a>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { useReveal } from '../hooks/useReveal';
 import Footer from '../components/Footer';
 import grandprixBg from '../assets/grandprix.png';
+import { SUBMISSION_FORM_URL } from '../constants';
 
 export default function GrandPrix({ onNavigate }) {
   useReveal();
@@ -119,7 +120,7 @@ export default function GrandPrix({ onNavigate }) {
           <hr className="rule" />
 
           <div className="reveal">
-            <span className="btn-primary" onClick={() => onNavigate('register')}>Submit Project for Grand Prix</span>
+            <a className="btn-primary" href={SUBMISSION_FORM_URL} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Submit Project for Grand Prix</a>
           </div>
         </div>
       </section>

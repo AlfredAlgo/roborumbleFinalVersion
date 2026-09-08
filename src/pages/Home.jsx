@@ -8,6 +8,7 @@ import technomaniaBg from '../assets/technomania.png';
 import ulLogo from '../assets/ul-logo.svg';
 import algoAtWorkLogo from '../assets/algoatwork-logo.jpg';
 import engenLogo from '../assets/engen-logo.png';
+import { SUBMISSION_FORM_URL } from '../constants';
 
 function FlipCard({ event, onNavigate }) {
   const bgMap = { robowars: robotwarsBg, grandprix: grandprixBg, drone: droneracingBg, technomania: technomaniaBg };
@@ -123,7 +124,7 @@ export default function Home({ onNavigate }) {
               <span className="hero-meta-item">Max 4 Members</span>
             </div>
             <div className="hero-btns">
-              <span className="btn-primary" onClick={() => onNavigate('register')}>Submit Project — Free</span>
+              <a className="btn-primary" href={SUBMISSION_FORM_URL} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Submit Project — Free</a>
               <a className="btn-outline" href="https://discord.gg/aeTpRuPzcb" target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Join our Discord</a>
             </div>
           </div>
@@ -277,7 +278,7 @@ export default function Home({ onNavigate }) {
               Submissions are now open for 12 September 2026. One winner. One stage.
             </p>
             <div style={{ display:'flex', gap:'1rem', justifyContent:'center', flexWrap:'wrap' }}>
-              <span className="btn-primary" onClick={() => onNavigate('register')}>Submit Project — It's Free</span>
+              <a className="btn-primary" href={SUBMISSION_FORM_URL} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Submit Project — It's Free</a>
               <span className="btn-outline" onClick={() => onNavigate('partner')}>Become a Partner</span>
             </div>
           </div>
