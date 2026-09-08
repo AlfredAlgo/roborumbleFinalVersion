@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useReveal } from '../hooks/useReveal';
 import Footer from '../components/Footer';
-import { supabase } from '../supabaseClient';
 
 export default function Register({ onNavigate }) {
   useReveal();
@@ -26,35 +25,7 @@ export default function Register({ onNavigate }) {
 
     setLoading(true);
     setSubmitError(null);
-
-    const { error } = await supabase.from('registrations').insert([{
-      country:       form.elements['country'].value,
-      province:      form.elements['province'] ? form.elements['province'].value || null : null,
-      team_name:     form.elements['teamName'].value.trim() || null,
-      institution:   form.elements['institution'].value.trim(),
-      inst_type:     form.elements['instType'].value || null,
-      category:      form.elements['category'].value,
-      captain_first: form.elements['captainFirst'].value.trim(),
-      captain_last:  form.elements['captainLast'].value.trim(),
-      captain_email: form.elements['captainEmail'].value.trim(),
-      captain_phone: form.elements['captainPhone'].value.trim(),
-      captain_id:    form.elements['captainId'].value.trim(),
-      member2_name:  form.elements['member2Name'].value.trim() || null,
-      member2_id:    form.elements['member2Id'].value.trim() || null,
-      member3_name:  form.elements['member3Name'].value.trim() || null,
-      member3_id:    form.elements['member3Id'].value.trim() || null,
-      member4_name:  form.elements['member4Name'].value.trim() || null,
-      member4_id:    form.elements['member4Id'].value.trim() || null,
-      notes:         form.elements['notes'].value.trim() || null,
-    }]);
-
     setLoading(false);
-
-    if (error) {
-      setSubmitError('Something went wrong. Please try again.');
-      return;
-    }
-
     setSubmitted(true);
   };
 
@@ -81,7 +52,7 @@ export default function Register({ onNavigate }) {
             Register Your Team
           </h1>
           <p style={{fontSize:'1.1rem',color:'var(--muted)',maxWidth:600,lineHeight:1.8}}>
-            Secure your team's place at Africa's biggest youth robotics and technology competition. 12 September 2026.
+            Secure your team's place at Africa's biggest youth robotics and technology competition. 24 October 2026.
           </p>
         </div>
       </section>
@@ -306,7 +277,7 @@ export default function Register({ onNavigate }) {
                   {[['48h','Confirmation Email','Team reference number + payment details'],
                     ['Wk1','Discord Invite','Category channel + community access'],
                     ['4wk','Rules + Track Specs','All technical documents released'],
-                    ['17 Sep','Competition Day','Arrive at University of Limpopo · 12 September 2026'],
+                    ['24 Oct','Competition Day','Arrive at University of Limpopo · 24 October 2026'],
                   ].map(([n,h,p]) => (
                     <div className="step" key={n} style={{padding:'.8rem 0'}}>
                       <div className="step-num" style={{fontSize:'1rem',width:'2rem'}}>{n}</div>

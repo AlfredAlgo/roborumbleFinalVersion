@@ -5,9 +5,7 @@ import robotwarsBg from '../assets/robotwars.png';
 import grandprixBg from '../assets/grandprix.png';
 import droneracingBg from '../assets/droneracing.png';
 import technomaniaBg from '../assets/technomania.png';
-import ulLogo from '../assets/ul-logo.svg';
 import algoAtWorkLogo from '../assets/algoatwork-logo.jpg';
-import engenLogo from '../assets/engen-logo.png';
 import { SUBMISSION_FORM_URL } from '../constants';
 
 function FlipCard({ event, onNavigate }) {
@@ -109,7 +107,7 @@ export default function Home({ onNavigate }) {
           <div className="hero-content">
             <div className="hero-eyebrow">
               <span className="hero-eyebrow-dot" />
-              <span>Registration Now Open · 12 September 2026</span>
+              <span>Registration Now Open · 24 October 2026</span>
             </div>
             <h1 className="hero-title">
               <span className="line1">AFRICA'S</span>
@@ -118,7 +116,7 @@ export default function Home({ onNavigate }) {
             </h1>
             <p className="hero-subtitle">4 Competitions · 1 National Stage · Unlimited Potential</p>
             <div className="hero-meta">
-              <span className="hero-meta-item">12 September 2026</span>
+              <span className="hero-meta-item">24 October 2026</span>
               <span className="hero-meta-item">University of Limpopo</span>
               <span className="hero-meta-item">Schools · TVETs · Universities</span>
               <span className="hero-meta-item">Max 4 Members</span>
@@ -203,11 +201,8 @@ export default function Home({ onNavigate }) {
         <div className="sponsors-bar reveal">
           <div className="sponsors-inner">
             <span className="sponsor-label" style={{fontSize:'1rem',letterSpacing:'.2em'}}>Implementing Partners</span>
-            <img src={ulLogo} alt="University of Limpopo" style={{height:'60px',width:'auto',objectFit:'contain'}} />
             <img src={algoAtWorkLogo} alt="AlgoAtWork by algorhythmlab" style={{height:'60px',width:'auto',objectFit:'contain'}} />
-            <img src={engenLogo} alt="Engen" style={{height:'60px',width:'auto',objectFit:'contain'}} />
           </div>
-          <p style={{textAlign:'center', marginTop:'1.2rem', color:'var(--muted)', fontSize:'.85rem'}}>RoboRumble is a proud partnership with Engen.</p>
         </div>
       </div>
 
@@ -225,7 +220,7 @@ export default function Home({ onNavigate }) {
               ['02','Choose Your Category','Select from Robo Wars, RoboGrand Prix, Drone Racing, or Technomania — one category per team.'],
               ['03','Join Discord','Get access to your category channel for rules, updates, and pre-event communications at discord.gg/aeTpRuPzcb'],
               ['04','Build & Prepare','Use the technical specs and rules to design, build, and test your entry. All builds must comply with category rules.'],
-              ['05','Compete','Arrive at the University of Limpopo on 12 September 2026 with your fully built entry, tools, and team ID.'],
+              ['05','Compete','Arrive at the University of Limpopo on 24 October 2026 with your fully built entry, tools, and team ID.'],
               ['06','Win prizes','Catagory winners recieve a share of prizes valued at R500,000.'],
             ].map(([n,h,p]) => (
               <div className="card reveal" key={n}>
@@ -251,14 +246,14 @@ export default function Home({ onNavigate }) {
                 ['Who can enter RoboRumble?', 'Any currently enrolled student at an African school, TVET college, or university. Teams must be from the same institution.'],
                 ['How many people per team?', 'Minimum 1, maximum 4 members. All members must be from the same institution. Registration is completely free.'],
                 ['Can we enter multiple categories?', 'No — each team may only register for one competition category. However, multiple teams from the same institution can each enter different categories.'],
-                ['When is the registration deadline?', 'Registration closes prior to the event on 12 September 2026. Exact deadline will be communicated via Discord and our website.'],
+                ['When is the registration deadline?', 'Registration closes prior to the event on 24 October 2026. Exact deadline will be communicated via Discord and our website.'],
               ].map(([q,a]) => <FaqItem key={q} q={q} a={a} />)}
             </div>
             <div>
               {[
                 ['Is registration really free?', 'Yes — entry to RoboRumble 2026 is completely free for all teams. There is no registration fee. Just sign up, pick your category, and compete.'],
                 ['What happens after we register?', 'Within 48 hours, you will receive a confirmation email with your team reference number. A Discord invite with your category channel follows in week 1.'],
-                ['Where will the event be held?', 'The event will be held at the University of Limpopo on 12 September 2026.'],
+                ['Where will the event be held?', 'The event will be held at the University of Limpopo on 24 October 2026.'],
                 ['What if our robot breaks at the event?', 'You will have access to a pit area between rounds to make repairs. Bring spare parts, tools, and a charging kit.'],
               ].map(([q,a]) => <FaqItem key={q} q={q} a={a} />)}
             </div>
@@ -275,7 +270,7 @@ export default function Home({ onNavigate }) {
               Your Team. Your Build.<br /><span style={{ color:'var(--red)' }}>One National Stage.</span>
             </h2>
             <p className="body" style={{ marginBottom:'2rem' }}>
-              Submissions are now open for 12 September 2026. One winner. One stage.
+              Submissions are now open for 24 October 2026. One winner. One stage.
             </p>
             <div style={{ display:'flex', gap:'1rem', justifyContent:'center', flexWrap:'wrap' }}>
               <a className="btn-primary" href={SUBMISSION_FORM_URL} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Submit Project — It's Free</a>

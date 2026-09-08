@@ -55,7 +55,7 @@ export default function GrandPrix({ onNavigate }) {
           </h1>
           <p style={{color:'#c0c0d8'}}>No driver. No remote. Just pure code, clever engineering, and a miniature vehicle smart enough to navigate a track entirely on its own. Code the car. Win the race.</p>
           <div className="event-hero-meta">
-            {['Fully Autonomous','AI / Sensors / Code','Max 4 Members','12 September 2026'].map(t => (
+            {['Fully Autonomous','AI / Sensors / Code','Max 4 Members','24 October 2026'].map(t => (
               <div className="event-meta-pill" key={t}><span className="dot" />{t}</div>
             ))}
           </div>

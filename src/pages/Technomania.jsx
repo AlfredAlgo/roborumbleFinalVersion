@@ -55,7 +55,7 @@ export default function Technomania({ onNavigate }) {
           </h1>
           <p style={{color:"#c0c0d8"}}>Tackle a real-world industry challenge. Design, build, and pitch a working technological solution that addresses a genuine business or social problem. This is where innovation meets industry.</p>
           <div className="event-hero-meta">
-            {['Innovation Challenge','IoT / AI / Robotics','Max 4 Members','12 September 2026'].map(t => (
+            {['Innovation Challenge','IoT / AI / Robotics','Max 4 Members','24 October 2026'].map(t => (
               <div className="event-meta-pill" key={t}><span className="dot" />{t}</div>
             ))}
           </div>

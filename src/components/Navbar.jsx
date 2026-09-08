@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import logoImg from '../assets/logo.png';
-import engenLogoImg from '../assets/engen-logo.png';
 import { SUBMISSION_FORM_URL } from '../constants';
 
 const links = [
@@ -38,11 +37,6 @@ export default function Navbar({ currentPage, onNavigate }) {
         <img
           src={logoImg}
           alt="Robo-Rumble"
-          style={{ height: '42px', width: 'auto', objectFit: 'contain' }}
-        />
-        <img
-          src={engenLogoImg}
-          alt="Engen"
           style={{ height: '42px', width: 'auto', objectFit: 'contain' }}
         />
       </div>

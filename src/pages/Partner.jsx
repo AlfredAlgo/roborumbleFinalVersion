@@ -67,7 +67,7 @@ export default function Partner({ onNavigate }) {
           <h1>Invest in the<br /><span>Next Generation.</span></h1>
           <p>Partner with RoboRumble to put your brand in front of South Africa's most driven young engineers, technologists, and innovators — at exactly the moment they're building their careers.</p>
           <div className="event-hero-meta">
-            {['2600+ Students','4 Categories','National Stage','12 September 2026'].map(t => (
+            {['2600+ Students','4 Categories','National Stage','24 October 2026'].map(t => (
               <div className="event-meta-pill" key={t}><span className="dot" />{t}</div>
             ))}
           </div>
