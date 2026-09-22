@@ -117,8 +117,8 @@ export default function RoboWars({ onNavigate }) {
                   ['Power','Battery-powered only. LiPo batteries must be in a fireproof bag.'],
                   ['Weapons','Active weapons are permitted within defined safe limits. No projectiles.'],
                   ['Remote Control','2.4GHz RC systems only. No autonomous control permitted.'],
-                ].map(([h,d]) => (
-                  <div key={h} style={{marginBottom:'.8rem',paddingBottom:'.8rem',borderBottom:'1px solid var(--border)'}}>
+                ].map(([h,d], i) => (
+                  <div key={h} className={`reveal reveal-delay-${i + 1}`} style={{marginBottom:'.8rem',paddingBottom:'.8rem',borderBottom:'1px solid var(--border)'}}>
                     <div style={{fontFamily:'Barlow Condensed, sans-serif',fontWeight:700,fontSize:'.85rem',color:'var(--white)',marginBottom:'.2rem'}}>{h}</div>
                     <div style={{fontSize:'.85rem',color:'var(--muted)'}}>{d}</div>
                   </div>
