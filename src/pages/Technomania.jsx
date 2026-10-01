@@ -1,5 +1,7 @@
 import { useReveal } from '../hooks/useReveal';
+import TicketButton from '../components/TicketButton';
 import Footer from '../components/Footer';
+import TypedText from '../components/TypedText';
 import technomaniaBg from '../assets/technomania.png';
 import { SUBMISSION_FORM_URL } from '../constants';
 export default function Technomania({ onNavigate }) {
@@ -11,7 +13,7 @@ export default function Technomania({ onNavigate }) {
         <div style={{position:'absolute',inset:0,background:'linear-gradient(0deg,rgba(6,6,8,.92) 0%,rgba(6,6,8,.55) 50%,rgba(6,6,8,.45) 100%)'}} />
 
         {/* Discord button - top right */}
-        <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2 }}>
+        <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: '1.75rem' }}>
           <a
             href="https://discord.gg/aeTpRuPzcb"
             target="_blank"
@@ -46,6 +48,7 @@ export default function Technomania({ onNavigate }) {
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
             Join our Discord
           </a>
+          <TicketButton />
         </div>
 
         <div className="wrap" style={{position:'relative',zIndex:1}}>
@@ -67,28 +70,28 @@ export default function Technomania({ onNavigate }) {
           <div className="two-col reveal">
             <div>
               <span className="label">About the Event</span>
-              <h2 className="heading" style={{fontSize:'1.8rem',marginBottom:'1.2rem'}}>What is Technomania?</h2>
+              <h2 className="heading" style={{fontSize:'1.8rem',marginBottom:'1.2rem'}}><TypedText text="What is Technomania?" className="glitch-battle" /></h2>
               <p className="body" style={{marginBottom:'1rem'}}>Technomania is RoboRumble's innovation challenge — a category that sits at the intersection of technology, engineering, and real-world impact. Teams receive a problem statement and must design, build, and pitch a working prototype solution.</p>
               <p className="body" style={{marginBottom:'1rem'}}>The challenge is open to IoT, AI, robotics, automation, software, or any combination of technologies. Solutions will be judged on technical execution, originality, and the ability to scale beyond the competition.</p>
               <p className="body">Industry engineers will be on hand during the event to engage with teams, ask technical questions, and evaluate real-world applicability.</p>
             </div>
             <div>
-              <div className="card" style={{marginBottom:'1.5rem'}}>
-                <div style={{fontFamily:'Barlow Condensed, sans-serif',fontWeight:700,fontSize:'.7rem',letterSpacing:'.2em',textTransform:'uppercase',color:'var(--muted)',marginBottom:'1rem'}}>Challenge Format</div>
+              <div className="spec-card" style={{marginBottom:'1.5rem'}}>
+                <div className="spec-card-title">Challenge Format</div>
                 {[
                   ['Problem Statement','Released at registration. Teams have until competition day to develop their solution.'],
                   ['Solution Type','IoT, AI, robotics, automation, software, hardware, or any combination.'],
                   ['Deliverable','A working prototype + a 5-minute live pitch to judges on the day.'],
                   ['Team Size','1–4 members from the same institution.'],
                   ['Entry Fee','Free — no cost to enter.'],
-                ].map(([h,d]) => (
-                  <div key={h} style={{marginBottom:'.8rem',paddingBottom:'.8rem',borderBottom:'1px solid var(--border)'}}>
-                    <div style={{fontFamily:'Barlow Condensed, sans-serif',fontWeight:700,fontSize:'.85rem',color:'var(--white)',marginBottom:'.2rem'}}>{h}</div>
-                    <div style={{fontSize:'.85rem',color:'var(--muted)'}}>{d}</div>
+                ].map(([h,d], i) => (
+                  <div key={h} className={`spec-row reveal reveal-delay-${i + 1}`}>
+                    <div className="spec-title">{h}</div>
+                    <div className="spec-desc">{d}</div>
                   </div>
                 ))}
               </div>
-              <div className="info-box">
+              <div className="info-box info-box-menace">
                 <h5>Industry Challenge</h5>
                 <p>Industry engineers set the challenge and judge the solutions. Top teams may receive mentorship and exposure opportunities beyond the competition.</p>
               </div>
@@ -106,9 +109,13 @@ export default function Technomania({ onNavigate }) {
                   ['25%','Real-World Impact','Can this solution actually be implemented at scale? Does it address the root problem?'],
                   ['20%','Pitch & Presentation','Clarity, confidence, and ability to answer tough questions from industry judges.'],
                 ].map(([p,h,d]) => (
-                  <div className="criteria-item" key={h}>
+                  <div className="criteria-item" key={h} style={{'--pct': p}}>
                     <div className="criteria-pct">{p}</div>
-                    <div><h4>{h}</h4><p>{d}</p></div>
+                    <div>
+                      <h4>{h}</h4>
+                      <p>{d}</p>
+                      <div className="criteria-bar"><span /></div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -116,16 +123,25 @@ export default function Technomania({ onNavigate }) {
             <div>
               <span className="label">Competition Day</span>
               <h2 className="heading" style={{fontSize:'1.6rem',marginBottom:'1.2rem'}}>What to Expect</h2>
-              <div className="steps" style={{gap:0}}>
+              <div className="steps steps-live">
                 {[
                   ['AM','Setup & Testing','Teams set up their prototype in the Innovation Zone. Final testing allowed.'],
                   ['Mid','Live Pitches','Each team presents their working solution to a panel of industry judges for 5 minutes.'],
                   ['Q&A','Judge Questions','Judges ask technical and strategic questions. Be ready to defend every decision.'],
                   ['PM','Awards','Winners announced at the main stage ceremony.'],
-                ].map(([n,h,p]) => (
-                  <div className="step" key={n} style={{padding:'.8rem 0'}}>
-                    <div className="step-num" style={{fontSize:'1rem',width:'2.5rem'}}>{n}</div>
-                    <div className="step-content"><h4 style={{fontSize:'.9rem'}}>{h}</h4><p style={{fontSize:'.82rem'}}>{p}</p></div>
+                ].map(([n,h,p], i) => (
+                  <div
+                    className="step"
+                    key={n}
+                    style={{'--i': i}}
+                    onMouseMove={e => {
+                      const r = e.currentTarget.getBoundingClientRect();
+                      e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
+                      e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
+                    }}
+                  >
+                    <div className="step-num">{n}</div>
+                    <div className="step-content"><h4>{h}</h4><p>{p}</p></div>
                   </div>
                 ))}
               </div>

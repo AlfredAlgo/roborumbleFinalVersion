@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useReveal } from '../hooks/useReveal';
+import TicketButton from '../components/TicketButton';
 import Footer from '../components/Footer';
 
 export default function Register({ onNavigate }) {
@@ -39,7 +40,10 @@ export default function Register({ onNavigate }) {
 
   return (
     <div className="page-enter pt-nav">
-      <section style={{padding:'6rem 0 3rem',borderBottom:'1px solid var(--border)'}}>
+      <section style={{padding:'6rem 0 3rem',borderBottom:'1px solid var(--border)',position:'relative'}}>
+        <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2 }}>
+          <TicketButton />
+        </div>
         <div className="wrap">
           <button
             onClick={() => onNavigate('home')}
