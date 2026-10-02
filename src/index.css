@@ -74,29 +74,21 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
   50% { box-shadow: 0 0 18px rgba(88,101,242,.95), 0 0 30px rgba(88,101,242,.5); }
 }
 
-.rainbow-glow-btn {
+.btn-primary.rainbow-glow-btn {
   position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; gap: .7rem;
   clip-path: none; border-radius: 10px; color: #fff; font-weight: 800; letter-spacing: .25em; text-shadow: 0 2px 6px rgba(0,0,0,.7);
-  background: linear-gradient(90deg, #ff0040, #ff8800, #ffee00, #00ff66, #00c8ff, #8844ff, #ff0040);
-  background-size: 300% 100%; overflow: visible;
-  animation: rainbowSlide 1.2s linear infinite, rainbowPulse .5s ease-in-out infinite alternate, ticketShake 3s ease-in-out infinite;
+  background: #e8001d; overflow: visible; cursor: pointer;
+  transition: transform .15s ease, background .15s ease;
+  animation: redPulse .2s ease-in-out infinite alternate;
 }
-/* spinning blurred halo behind the button */
-.rainbow-glow-btn::before { content: ''; position: absolute; inset: -6px; z-index: -1; border-radius: 16px; background: conic-gradient(from 0deg, #ff0040, #ff8800, #ffee00, #00ff66, #00c8ff, #8844ff, #ff0040); filter: blur(14px); opacity: .9; animation: haloSpin 1.6s linear infinite; }
-/* light sweep across the face */
-.rainbow-glow-btn::after { content: ''; position: absolute; inset: 0; border-radius: 10px; background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.75) 50%, transparent 65%); background-size: 250% 100%; background-position: 150% 0; mix-blend-mode: overlay; pointer-events: none; animation: shineSweep 1.8s ease-in-out infinite; }
-.rainbow-glow-btn .ticket-icon { width: 1.4em; height: 1.4em; flex-shrink: 0; filter: drop-shadow(0 0 6px #fff); animation: ticketWiggle 1.2s ease-in-out infinite; }
-.rainbow-glow-btn:hover { transform: scale(1.08) rotate(-1deg); background: linear-gradient(90deg, #ff0040, #ff8800, #ffee00, #00ff66, #00c8ff, #8844ff, #ff0040); background-size: 300% 100%; animation-duration: .5s, .25s, 3s; }
-.rainbow-glow-btn:hover::before { inset: -10px; filter: blur(20px); opacity: 1; animation-duration: .6s; }
-@keyframes rainbowSlide { from { background-position: 0% 50%; } to { background-position: 300% 50%; } }
-@keyframes haloSpin { to { transform: rotate(360deg); } }
-@keyframes shineSweep { 0% { background-position: 150% 0; } 60%, 100% { background-position: -50% 0; } }
-@keyframes rainbowPulse {
-  from { box-shadow: 0 0 10px rgba(255,255,255,.4), 0 0 24px rgba(255,0,64,.6); }
-  to   { box-shadow: 0 0 28px rgba(255,255,255,.8), 0 0 60px rgba(0,200,255,.9); }
+.rainbow-glow-btn .ticket-icon { width: 1.4em; height: 1.4em; flex-shrink: 0; transition: transform .2s ease; }
+.btn-primary.rainbow-glow-btn:hover { transform: scale(1.06); background: #ff1a38; animation-duration: .12s; }
+.rainbow-glow-btn:hover .ticket-icon { transform: rotate(-12deg) scale(1.15); }
+.rainbow-glow-btn:active { transform: scale(.96); }
+@keyframes redPulse {
+  from { box-shadow: 0 0 4px rgba(255,0,32,.3), 0 0 10px rgba(255,0,32,.2); }
+  to   { box-shadow: 0 0 24px rgba(255,0,32,1), 0 0 56px rgba(255,0,32,.9), 0 0 90px rgba(255,0,32,.6); }
 }
-@keyframes ticketWiggle { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(12deg) scale(1.15); } }
-@keyframes ticketShake { 0%, 88%, 100% { translate: 0 0; } 90% { translate: -3px 0; } 92% { translate: 3px 0; } 94% { translate: -3px 0; } 96% { translate: 3px 0; } }
 
 .nav-mobile-btn { display: none; flex-direction: column; gap: 5px; padding: .5rem; cursor: pointer; }
 .nav-mobile-btn span { width: 24px; height: 2px; background: var(--text); transition: .3s; }
