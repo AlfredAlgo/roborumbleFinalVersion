@@ -1,6 +1,8 @@
 import { useReveal } from '../hooks/useReveal';
+import TicketButton from '../components/TicketButton';
 import Footer from '../components/Footer';
 import FaqItem from '../components/FaqItem';
+import TypedText from '../components/TypedText';
 import robotwarsBg from '../assets/robotwars.png';
 import { SUBMISSION_FORM_URL } from '../constants';
 
@@ -12,42 +14,9 @@ export default function RoboWars({ onNavigate }) {
         <div style={{position:'absolute',inset:0,backgroundImage:`url(${robotwarsBg})`,backgroundSize:'cover',backgroundPosition:'center center',backgroundRepeat:'no-repeat'}} />
         <div style={{position:'absolute',inset:0,background:'linear-gradient(0deg,rgba(6,6,8,.92) 0%,rgba(6,6,8,.55) 50%,rgba(6,6,8,.45) 100%)'}} />
 
-        {/* Discord button - top right */}
-        <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2 }}>
-          <a
-            href="https://discord.gg/aeTpRuPzcb"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="discord-glow-btn"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              padding: '0.6rem 1.4rem',
-              borderRadius: '6px',
-              border: '1px solid #5865F2',
-              background: 'transparent',
-              color: '#fff',
-              fontFamily: 'Barlow Condensed, sans-serif',
-              fontWeight: 700,
-              fontSize: '0.95rem',
-              letterSpacing: '0.05em',
-              textDecoration: 'none',
-              cursor: 'pointer',
-              transition: 'background 0.2s ease, color 0.2s ease',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = '#5865F2';
-              e.currentTarget.style.color = '#fff';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = '#fff';
-            }}
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-            Join our Discord
-          </a>
+        {/* Ticket button - top right */}
+        <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: '1.75rem' }}>
+          <TicketButton />
         </div>
 
         <div className="wrap" style={{position:'relative',zIndex:1}}>
@@ -73,7 +42,7 @@ export default function RoboWars({ onNavigate }) {
           <div className="two-col reveal">
             <div>
               <span className="label">About the Event</span>
-              <h2 className="heading" style={{fontSize:'1.8rem',marginBottom:'1.2rem'}}>What is Robo Wars?</h2>
+              <h2 className="heading" style={{fontSize:'1.8rem',marginBottom:'1.2rem'}}><TypedText text="What is Robo Wars?" className="glitch-battle" /></h2>
               <p className="body" style={{marginBottom:'1rem'}}>Robo Wars is a remote-controlled combat robotics competition where teams build machines designed to outmanoeuvre, out-hit, and outlast opponents in a physical arena. This is mechanical engineering at its most raw.</p>
               <p className="body" style={{marginBottom:'1rem'}}>Teams are responsible for the full design and build of their robot, within strict weight and size constraints. The arena is unforgiving — robots that aren't built tough will not survive.</p>
               <p className="body">Points are won through arena combat and a technical judging session where teams explain their design choices to a panel of industry engineers.</p>
@@ -85,7 +54,7 @@ export default function RoboWars({ onNavigate }) {
                 ))}
               </div>
               <div className="highlight-panel" style={{marginTop:'1.5rem'}}>
-                <p><strong>Arena Format:</strong> Single-elimination bracket. Each match is [X] minutes. Robots that are immobilised, pushed out of bounds, or fully destroyed lose the match. Judges may award points for aggression and control.</p>
+                <p><strong>Arena Format:</strong> Single-elimination bracket. Robots that are immobilised, pushed out of bounds, or fully destroyed lose the match. Judges may award points for aggression and control.</p>
               </div>
             </div>
           </div>
@@ -101,9 +70,13 @@ export default function RoboWars({ onNavigate }) {
                   ['30%','Design & Engineering','Structural integrity, innovation, weapon effectiveness, quality of build.'],
                   ['20%','Presentation','Team ability to explain and defend design decisions to the judging panel.'],
                 ].map(([p,h,d]) => (
-                  <div className="criteria-item" key={h}>
+                  <div className="criteria-item" key={h} style={{'--pct': p}}>
                     <div className="criteria-pct">{p}</div>
-                    <div><h4>{h}</h4><p>{d}</p></div>
+                    <div>
+                      <h4>{h}</h4>
+                      <p>{d}</p>
+                      <div className="criteria-bar"><span /></div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -111,19 +84,19 @@ export default function RoboWars({ onNavigate }) {
             <div>
               <span className="label">Robot Rules Summary</span>
               <h2 className="heading" style={{fontSize:'1.6rem',marginBottom:'1.2rem'}}>Build Requirements</h2>
-              <div className="card" style={{marginBottom:'1rem'}}>
+              <div className="spec-card" style={{marginBottom:'1rem'}}>
                 {[['Weight Limit','Maximum  10 kg fully assembled including battery.'],
                   ['Footprint','Must fit within a 50 × 50 cm starting box.'],
                   ['Power','Battery-powered only. LiPo batteries must be in a fireproof bag.'],
                   ['Weapons','Active weapons are permitted within defined safe limits. No projectiles.'],
                   ['Remote Control','2.4GHz RC systems only. No autonomous control permitted.'],
                 ].map(([h,d], i) => (
-                  <div key={h} className={`reveal reveal-delay-${i + 1}`} style={{marginBottom:'.8rem',paddingBottom:'.8rem',borderBottom:'1px solid var(--border)'}}>
-                    <div style={{fontFamily:'Barlow Condensed, sans-serif',fontWeight:700,fontSize:'.85rem',color:'var(--white)',marginBottom:'.2rem'}}>{h}</div>
-                    <div style={{fontSize:'.85rem',color:'var(--muted)'}}>{d}</div>
+                  <div key={h} className={`spec-row reveal reveal-delay-${i + 1}`}>
+                    <div className="spec-title">{h}</div>
+                    <div className="spec-desc">{d}</div>
                   </div>
                 ))}
-                <p style={{fontSize:'.8rem',color:'var(--red)',marginTop:'.5rem'}}>Full technical document released via Discord after registration.</p>
+                <p className="spec-note">Full technical document released via Discord after registration.</p>
               </div>
             </div>
           </div>
@@ -155,19 +128,31 @@ export default function RoboWars({ onNavigate }) {
             <div>
               <span className="label">How to Enter</span>
               <h2 className="heading" style={{fontSize:'1.6rem',marginBottom:'1.5rem'}}>Register Your Team</h2>
-              <div className="steps">
+              <div className="steps steps-live">
                 {[['01','Register for Free','Complete the free registration form.'],
                   ['02','Select Robo Wars','Choose "Robo Wars" as your competition category during registration.'],
                   ['03','Join Discord','Connect at discord.gg/aeTpRuPzcb for all updates and rules.'],
                   ['04','Read the Rules','Download the full technical specification and ensure your robot complies.'],
                   ['05','Build & Compete','Start early. Great robots take time. The arena opens 17 October 2026.'],
-                ].map(([n,h,p]) => (
-                  <div className="step" key={n}><div className="step-num">{n}</div><div className="step-content"><h4>{h}</h4><p>{p}</p></div></div>
+                ].map(([n,h,p], i) => (
+                  <div
+                    className="step"
+                    key={n}
+                    style={{'--i': i}}
+                    onMouseMove={e => {
+                      const r = e.currentTarget.getBoundingClientRect();
+                      e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
+                      e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
+                    }}
+                  >
+                    <div className="step-num">{n}</div>
+                    <div className="step-content"><h4>{h}</h4><p>{p}</p></div>
+                  </div>
                 ))}
               </div>
             </div>
             <div style={{paddingTop:'2.5rem'}}>
-              <div className="highlight-panel">
+              <div className="highlight-panel highlight-menace">
                 <p><strong>What to Bring on Competition Day:</strong> Fully assembled robot, all tools and spare parts for pit repairs, LiPo charging equipment and fireproof bag, team ID, and proof of registration. Matching team T-shirts are encouraged.</p>
               </div>
               <div style={{marginTop:'2rem'}}>

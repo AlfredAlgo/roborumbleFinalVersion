@@ -1,4 +1,5 @@
 import { useReveal } from '../hooks/useReveal';
+import TicketButton from '../components/TicketButton';
 import Footer from '../components/Footer';
 
 const tiers = [
@@ -31,18 +32,6 @@ const tiers = [
     featured: false,
   },
   {
-    badge: 'bronze', badgeLabel: 'Silver Partner', price: 'R[X]',
-    desc: 'Solid brand presence and meaningful engagement with South Africa\'s top young engineers.',
-    features: [
-      'Logo on event programme and website',
-      'Branded exhibition table',
-      'Social media acknowledgement',
-      '2 standard event passes',
-      'Access to participant CVs on request',
-    ],
-    featured: false,
-  },
-  {
     badge: 'community', badgeLabel: 'Community Partner', price: 'In-Kind',
     desc: 'Contribute products, services, or prizes in exchange for brand recognition and community goodwill.',
     features: [
@@ -61,6 +50,9 @@ export default function Partner({ onNavigate }) {
     <div className="page-enter pt-nav">
       <section className="event-hero">
         <div className="event-hero-bg" />
+        <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2 }}>
+          <TicketButton />
+        </div>
         <div className="wrap">
 
           <span className="label">Partnerships & Sponsorship</span>
