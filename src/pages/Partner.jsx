@@ -1,6 +1,6 @@
 import { useReveal } from '../hooks/useReveal';
-import TicketButton from '../components/TicketButton';
 import Footer from '../components/Footer';
+import { EVENT_DATE_LABEL } from '../constants';
 
 const tiers = [
   {
@@ -50,16 +50,13 @@ export default function Partner({ onNavigate }) {
     <div className="page-enter pt-nav">
       <section className="event-hero">
         <div className="event-hero-bg" />
-        <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2 }}>
-          <TicketButton />
-        </div>
         <div className="wrap">
 
           <span className="label">Partnerships & Sponsorship</span>
           <h1>Invest in the<br /><span>Next Generation.</span></h1>
           <p>Partner with RoboRumble to put your brand in front of South Africa's most driven young engineers, technologists, and innovators — at exactly the moment they're building their careers.</p>
           <div className="event-hero-meta">
-            {['2600+ Students','4 Categories','National Stage','17 October 2026'].map(t => (
+            {['2600+ Students','3 Categories','National Stage',EVENT_DATE_LABEL].map(t => (
               <div className="event-meta-pill" key={t}><span className="dot" />{t}</div>
             ))}
           </div>
@@ -72,7 +69,7 @@ export default function Partner({ onNavigate }) {
             <div>
               <span className="label">Why Partner With Us</span>
               <h2 className="heading" style={{fontSize:'1.8rem',marginBottom:'1.2rem'}}>Reach Tomorrow's Engineers Today</h2>
-              <p className="body" style={{marginBottom:'1rem'}}>RoboRumble is South Africa's premier youth robotics and technology competition. We bring together hundreds of students from schools, TVETs, and universities — all united by a passion for building, coding, and competing.</p>
+              <p className="body" style={{marginBottom:'1rem'}}>RoboRumble is South Africa's premier youth robotics and technology competition. We bring together hundreds of students from schools, TVETs, universities, private colleges and industry — all united by a passion for building, coding, and competing.</p>
               <p className="body" style={{marginBottom:'1rem'}}>For sponsors, this is a rare opportunity to engage directly with motivated, technical youth in an environment where your brand is associated with innovation, excellence, and ambition.</p>
               <div className="mission-items" style={{marginTop:'1.5rem'}}>
                 {[
@@ -94,7 +91,7 @@ export default function Partner({ onNavigate }) {
                 <div className="mission-big-text">Student Participants</div>
               </div>
               <div className="mission-boxes">
-                {[['100+','Teams Competing'],['4','Competition Tracks'],['3','Inst. Types'],['1','National Event']].map(([n,l]) => (
+                {[['100+','Teams Competing'],['3','Competition Tracks'],['3','Inst. Types'],['1','National Event']].map(([n,l]) => (
                   <div className="mission-mini" key={l}>
                     <div className="num">{n}</div>
                     <div className="lbl">{l}</div>

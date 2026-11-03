@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useReveal } from '../hooks/useReveal';
-import TicketButton from '../components/TicketButton';
 import Footer from '../components/Footer';
+import { COMPONENT_DEADLINE, EVENT_DATE_LABEL, REGISTRATION_CLOSES } from '../constants';
 
 export default function Register({ onNavigate }) {
   useReveal();
@@ -41,9 +41,6 @@ export default function Register({ onNavigate }) {
   return (
     <div className="page-enter pt-nav">
       <section style={{padding:'6rem 0 3rem',borderBottom:'1px solid var(--border)',position:'relative'}}>
-        <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2 }}>
-          <TicketButton />
-        </div>
         <div className="wrap">
           <button
             onClick={() => onNavigate('home')}
@@ -56,7 +53,7 @@ export default function Register({ onNavigate }) {
             Register Your Team
           </h1>
           <p style={{fontSize:'1.1rem',color:'var(--muted)',maxWidth:600,lineHeight:1.8}}>
-            Secure your team's place at Africa's biggest youth robotics and technology competition. 17 October 2026.
+            Secure your team's place at Africa's biggest youth robotics and technology competition. {EVENT_DATE_LABEL}. Registration closes {REGISTRATION_CLOSES}.
           </p>
         </div>
       </section>
@@ -121,7 +118,7 @@ export default function Register({ onNavigate }) {
                     </div>
                     <div className="form-grid">
                       <div className="form-group">
-                        <label className="form-label">Institution / School *</label>
+                        <label className="form-label">Institution / School / Company *</label>
                         <input className="form-input" name="institution" type="text" placeholder="Institution name"
                           style={inputStyle('institution')} onChange={() => clearError('institution')} />
                       </div>
@@ -133,6 +130,9 @@ export default function Register({ onNavigate }) {
                           <option>TVET College</option>
                           <option>University</option>
                           <option>University of Technology</option>
+                          <option>Private College / University</option>
+                          <option>Company</option>
+                          <option>Independent</option>
                         </select>
                       </div>
                     </div>
@@ -143,7 +143,6 @@ export default function Register({ onNavigate }) {
                         <option>Robo Wars</option>
                         <option>RoboGrand Prix</option>
                         <option>Drone Racing</option>
-                        <option>Technomania</option>
                       </select>
                     </div>
                   </div>
@@ -271,7 +270,7 @@ export default function Register({ onNavigate }) {
 
               <div className="info-box" style={{marginBottom:'1.5rem'}}>
                 <h5>Before You Register</h5>
-                <p>All team members must be currently enrolled students at the same institution. Maximum 4 members per team. Registration is completely free — no payment required.</p>
+                <p>Open to any team: schools, TVETs, universities, private colleges, companies and independent individuals. Maximum 4 members per team. Returning teams must build a new project. All components must be secured {COMPONENT_DEADLINE} or the team will be disqualified. Registration is completely free — no payment required.</p>
               </div>
 
               <div className="card" style={{marginBottom:'1.5rem'}}>
@@ -280,7 +279,7 @@ export default function Register({ onNavigate }) {
                   {[['48h','Confirmation Email','Team reference number + payment details'],
                     ['Wk1','Discord Invite','Category channel + community access'],
                     ['4wk','Rules + Track Specs','All technical documents released'],
-                    ['24 Oct','Competition Day','Arrive at Klipspruit Sports Center · 17 October 2026'],
+                    ['Day','Competition Day',`${EVENT_DATE_LABEL} · Venue to be announced`],
                   ].map(([n,h,p]) => (
                     <div className="step" key={n} style={{padding:'.8rem 0'}}>
                       <div className="step-num" style={{fontSize:'1rem',width:'2rem'}}>{n}</div>

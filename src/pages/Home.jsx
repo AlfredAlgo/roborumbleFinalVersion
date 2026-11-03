@@ -1,20 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useReveal } from '../hooks/useReveal';
-import TicketButton from '../components/TicketButton';
 import CountUp from '../components/CountUp';
 import Countdown from '../components/Countdown';
-import posterImg from '../assets/poster.jpg';
 import Footer from '../components/Footer';
 import FaqItem from '../components/FaqItem';
 import robotwarsBg from '../assets/robotwars.png';
 import grandprixBg from '../assets/grandprix.png';
 import droneracingBg from '../assets/droneracing.png';
-import technomaniaBg from '../assets/technomania.png';
-import algoAtWorkLogo from '../assets/algoatwork-logo.jpg';
-import { SUBMISSION_FORM_URL } from '../constants';
+import { SUBMISSION_FORM_URL, EVENT_DATE_LABEL, EVENT_YEAR, REGISTRATION_CLOSES, COMPONENT_DEADLINE } from '../constants';
 
 function FlipCard({ event, onNavigate }) {
-  const bgMap = { robowars: robotwarsBg, grandprix: grandprixBg, drone: droneracingBg, technomania: technomaniaBg };
+  const bgMap = { robowars: robotwarsBg, grandprix: grandprixBg, drone: droneracingBg };
   const bg = bgMap[event.id];
   return (
     <div
@@ -101,7 +97,6 @@ export default function Home({ onNavigate }) {
     { id: 'robowars',    title: 'Robo Wars',      desc: 'Engineer a combat-ready robot, step into the arena, and outlast every opponent. Pure mechanics, strategy, and grit under pressure.',          chips: ['Remote Control','Combat','Mechanical Engineering'], delay: '1' },
     { id: 'grandprix',  title: 'RoboGrand Prix',  desc: 'Code an AI-powered autonomous car that reads the track, navigates obstacles, and races to the finish — no human control allowed.',           chips: ['Autonomous','AI / Code','Line Following'],           delay: '2' },
     { id: 'drone',      title: 'Drone Racing',    desc: 'Build and fly an autonomous drone through a 3D racecourse using sensors, vision, and smart decision-making. Fastest and most precise wins.', chips: ['Autonomous Flight','Computer Vision','UAV'],         delay: '1' },
-    { id: 'technomania',title: 'Technomania',     desc: 'Tackle a real-world problem using technology. Design, build, and pitch a working solution that can scale beyond the competition.',            chips: ['Innovation','IoT / AI / Robotics'],                  delay: '2' },
   ];
 
   return (
@@ -111,23 +106,18 @@ export default function Home({ onNavigate }) {
         <div className="hero-bg" />
         <div className="hero-lines" />
 
-        {/* Ticket button - top right */}
-        <div style={{ position: 'absolute', top: '10.5rem', right: '1.5rem', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: '1.75rem' }}>
-          <TicketButton />
-        </div>
-
         <div className="wrap">
           <div className="hero-content">
             <div className="hero-eyebrow">
               <span className="hero-eyebrow-dot" />
-              <span className="hero-eyebrow-text">Registration Now Open<i className="hero-eyebrow-sep">·</i><b>17 October 2026</b></span>
+              <span className="hero-eyebrow-text">Road to Rumble<i className="hero-eyebrow-sep">·</i><b>{EVENT_DATE_LABEL}</b></span>
             </div>
             <TypedHeroTitle lines={HERO_TITLE_LINES} />
-            <p className="hero-subtitle">4 Competitions · 1 National Stage · Unlimited Potential</p>
+            <p className="hero-subtitle">3 Competitions · 1 National Stage · Unlimited Potential</p>
             <div className="hero-meta">
-              <span className="hero-meta-item" style={{ '--i': 0 }}>17 October 2026</span>
-              <span className="hero-meta-item" style={{ '--i': 1 }}>Klipspruit Sports Center</span>
-              <span className="hero-meta-item" style={{ '--i': 2 }}>Schools · TVETs · Universities</span>
+              <span className="hero-meta-item" style={{ '--i': 0 }}>{EVENT_DATE_LABEL}</span>
+              <span className="hero-meta-item" style={{ '--i': 1 }}>Venue TBA</span>
+              <span className="hero-meta-item" style={{ '--i': 2 }}>Open to Any Team</span>
               <span className="hero-meta-item" style={{ '--i': 3 }}>Max 4 Members</span>
             </div>
             <div className="hero-btns">
@@ -140,7 +130,7 @@ export default function Home({ onNavigate }) {
       {/* STATS */}
       <div className="wrap">
         <div className="stats-row reveal">
-          {[['2600+','Young Innovators'],['4','Competition Categories'],['3','Education Tiers'],['1','National Stage']].map(([n,l]) => (
+          {[['2600+','Young Innovators'],['3','Competition Categories'],['Any','Team Can Enter'],['1','National Stage']].map(([n,l]) => (
             <div className="stat-box" key={l}>
               <div className="stat-num"><CountUp value={n} /></div>
               <div className="stat-label">{l}</div>
@@ -149,20 +139,30 @@ export default function Home({ onNavigate }) {
         </div>
       </div>
 
-      {/* POSTER + COUNTDOWN */}
-      <section className="section poster-section">
+      {/* ROAD TO RUMBLE */}
+      <section className="section poster-section" id="road-to-rumble">
         <div className="wrap">
           <div className="poster-grid">
-            <div className="poster-frame reveal">
-              <img src={posterImg} alt="RoboRumble STEM Innovation Competition Grand Finale poster, 17 October, Klipspruit Sports Center, Johannesburg" loading="lazy" />
-            </div>
             <div className="reveal">
-              <span className="label">Grand Finale</span>
-              <h2 className="heading poster-title">The Countdown <span className="glitch-battle">Is On</span></h2>
-              <p className="body" style={{ marginBottom: '1.8rem' }}>Two machines. One arena. The RoboRumble Grand Finale lands at Klipspruit Sports Center, Johannesburg on 17 October 2026.</p>
+              <span className="label">Road to Rumble {EVENT_YEAR}</span>
+              <h2 className="heading poster-title">The Road to Rumble <span className="glitch-battle">Starts Now</span></h2>
+              <p className="body" style={{ marginBottom: '1rem' }}>The RoboRumble {EVENT_YEAR} Grand Finale lands on {EVENT_DATE_LABEL}, with the venue to be announced. This year the arena is open to any team: schools, TVETs, universities, private colleges, company engineers and independent builders.</p>
+              <p className="body" style={{ marginBottom: '1.8rem' }}>Register early, lock in your components and use every month to build. The best entries are built over months, not the night before.</p>
               <Countdown />
-              <div className="poster-actions">
-                <TicketButton />
+            </div>
+            <div className="reveal reveal-delay-1">
+              <div className="steps steps-live">
+                {[
+                  ['01','Registration Open','Teams register now. Registration closes ' + REGISTRATION_CLOSES + '.'],
+                  ['02','Build Phase','From February, the focus is on building. Use the rules, specs and build resources shared on Discord.'],
+                  ['03','Component Deadline','All build components must be secured ' + COMPONENT_DEADLINE + '. Teams without components by the deadline will be disqualified.'],
+                  ['04','Grand Finale',EVENT_DATE_LABEL + '. Bring your fully built entry, tools and team ID.'],
+                ].map(([n,h,p], i) => (
+                  <div className="step" key={n} style={{ '--i': i }}>
+                    <div className="step-num">{n}</div>
+                    <div className="step-content"><h4>{h}</h4><p>{p}</p></div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -175,7 +175,7 @@ export default function Home({ onNavigate }) {
           <div className="section-header reveal">
             <span className="label">Competition Categories</span>
             <h2>Choose Your <span className="glitch-battle">Battle</span></h2>
-            <p>Four distinct arenas. One national stage. Every category demands a different kind of mastery — pick the one that matches your team's edge.</p>
+            <p>Three distinct arenas. One national stage. Every category demands a different kind of mastery — pick the one that matches your team's edge.</p>
           </div>
           <div className="events-grid">
             {events.map(e => <FlipCard key={e.id} event={e} onNavigate={onNavigate} />)}
@@ -197,7 +197,7 @@ export default function Home({ onNavigate }) {
                 {[
                   ['Real-World Skills','Competitions mirror actual engineering challenges in autonomous systems, robotics, and innovation.'],
                   ['Industry Exposure','Bridging the gap between education and real-world employment through hands-on competition.'],
-                  ['National Community','Connect with the best young tech minds from schools, TVETs, and universities across the country.'],
+                  ['National Community','Connect with the best young tech minds from schools, colleges, universities and industry across the country.'],
                 ].map(([h,p], i) => (
                   <div
                     className="mission-item"
@@ -217,11 +217,11 @@ export default function Home({ onNavigate }) {
             </div>
             <div className="mission-visual reveal reveal-delay-1">
               <div className="mission-box">
-                <div className="mission-big-num">2026</div>
-                <div className="mission-big-text">Inaugural Year</div>
+                <div className="mission-big-num">{EVENT_YEAR}</div>
+                <div className="mission-big-text">Road to Rumble</div>
               </div>
               <div className="mission-boxes">
-                {[['2600+','Expected Participants'],['4','Competition Tracks'],['3','Institution Types'],['1st','National Event']].map(([n,l]) => (
+                {[['2600+','Expected Participants'],['3','Competition Tracks'],['Any','Team Can Enter'],['1st','National Event']].map(([n,l]) => (
                   <div className="mission-mini" key={l}>
                     <div className="num">{n}</div>
                     <div className="lbl">{l}</div>
@@ -233,16 +233,6 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* IMPLEMENTING PARTNERS */}
-      <div className="wrap">
-        <div className="sponsors-bar reveal">
-          <div className="sponsors-inner">
-            <span className="sponsor-label" style={{fontSize:'1rem',letterSpacing:'.2em'}}>Implementing Partners</span>
-            <img src={algoAtWorkLogo} alt="AlgoAtWork by algorhythmlab" style={{height:'60px',width:'auto',objectFit:'contain'}} />
-          </div>
-        </div>
-      </div>
-
       {/* HOW IT WORKS */}
       <section className="section">
         <div className="wrap">
@@ -253,11 +243,11 @@ export default function Home({ onNavigate }) {
           </div>
           <div className="three-col">
             {[
-              ['01','Register for Free','Complete the team registration form — entry is completely free. One registration covers your entire team of up to 4 members.'],
-              ['02','Choose Your Category','Select from Robo Wars, RoboGrand Prix, Drone Racing, or Technomania — one category per team.'],
+              ['01','Register for Free','Complete the team registration form before ' + REGISTRATION_CLOSES + ' — entry is completely free. One registration covers your entire team of up to 4 members.'],
+              ['02','Choose Your Category','Select from Robo Wars, RoboGrand Prix, or Drone Racing — one category per team.'],
               ['03','Join Discord','Get access to your category channel for rules, updates, and pre-event communications at discord.gg/aeTpRuPzcb'],
-              ['04','Build & Prepare','Use the technical specs and rules to design, build, and test your entry. All builds must comply with category rules.'],
-              ['05','Compete','Arrive at Klipspruit Sports Center on 17 October 2026 with your fully built entry, tools, and team ID.'],
+              ['04','Build & Prepare','Use the technical specs and rules to design, build, and test your entry. Secure all components ' + COMPONENT_DEADLINE + ' or your team will be disqualified.'],
+              ['05','Compete',`Arrive on ${EVENT_DATE_LABEL} with your fully built entry, tools, and team ID.`],
               ['06','Win prizes','Category winners will have the chance to win big with epic prizes up for grabs.'],
             ].map(([n,h,p]) => (
               <div
@@ -288,17 +278,19 @@ export default function Home({ onNavigate }) {
           <div className="two-col reveal">
             <div>
               {[
-                ['Who can enter RoboRumble?', 'Any currently enrolled student at an African school, TVET college, or university. Teams must be from the same institution.'],
-                ['How many people per team?', 'Minimum 1, maximum 4 members. All members must be from the same institution. Registration is completely free.'],
+                ['Who can enter RoboRumble?', 'Any team can enter: school learners, TVET and university students, private colleges, engineers from companies, and independent individuals.'],
+                ['We competed before. Can we bring the same project?', 'No. Returning teams are welcome, but every team must build a new project for ' + EVENT_YEAR + '.'],
+                ['How many people per team?', 'Minimum 1, maximum 4 members. Registration is completely free.'],
                 ['Can we enter multiple categories?', 'No — each team may only register for one competition category. However, multiple teams from the same institution can each enter different categories.'],
-                ['When is the registration deadline?', 'Registration closes prior to the event on 17 October 2026. Exact deadline will be communicated via Discord and our website.'],
+                ['When is the registration deadline?', 'Registration closes on ' + REGISTRATION_CLOSES + ', so February can be spent building.'],
+                ['When do we need our components?', 'All build components must be secured ' + COMPONENT_DEADLINE + '. Teams without their components by the deadline will be disqualified.'],
               ].map(([q,a]) => <FaqItem key={q} q={q} a={a} />)}
             </div>
             <div>
               {[
-                ['Is registration really free?', 'Yes — entry to RoboRumble 2026 is completely free for all teams. There is no registration fee. Just sign up, pick your category, and compete.'],
+                ['Is registration really free?', `Yes — entry to RoboRumble ${EVENT_YEAR} is completely free for all teams. There is no registration fee. Just sign up, pick your category, and compete.`],
                 ['What happens after we register?', 'Within 48 hours, you will receive a confirmation email with your team reference number. A Discord invite with your category channel follows in week 1.'],
-                ['Where will the event be held?', 'The event will be held at Klipspruit Sports Center on 17 October 2026.'],
+                ['Where will the event be held?', `The venue for ${EVENT_DATE_LABEL} will be announced on our website and Discord.`],
                 ['What if our robot breaks at the event?', 'You will have access to a pit area between rounds to make repairs. Bring spare parts, tools, and a charging kit.'],
               ].map(([q,a]) => <FaqItem key={q} q={q} a={a} />)}
             </div>
@@ -315,11 +307,11 @@ export default function Home({ onNavigate }) {
               Your Team. Your Build.<br /><span style={{ color:'var(--red)' }}>One National Stage.</span>
             </h2>
             <p className="body" style={{ marginBottom:'2rem' }}>
-              Submissions are now open for 17 October 2026. One winner. One stage.
+              Registration is open until {REGISTRATION_CLOSES}. The Grand Finale is on {EVENT_DATE_LABEL}.
             </p>
             <div style={{ display:'flex', gap:'1rem', justifyContent:'center', flexWrap:'wrap' }}>
               <a className="btn-primary" href={SUBMISSION_FORM_URL} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Submit Project — It's Free</a>
-              <span className="btn-outline" onClick={() => onNavigate('partner')}>Become a Partner</span>
+              <span className="btn-outline is-disabled" aria-disabled="true" title="Coming soon">Become a Partner</span>
             </div>
           </div>
         </div>

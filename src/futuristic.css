@@ -1,0 +1,270 @@
+/* ══════════════════════════════════════════════════════════
+   FUTURISTIC HUD LAYER
+   Loaded after index.css. Sci-fi heads-up-display styling:
+   glowing corner brackets, glass panels, scanlines, a moving
+   grid floor and terminal-style labels. Brand red/yellow kept.
+   Remove the import in main.jsx to switch it off.
+   ══════════════════════════════════════════════════════════ */
+
+:root {
+  --hud: #ff2a3f;
+  --hud-dim: rgba(255, 42, 63, .35);
+  --hud-len: 16px;
+  --hud-w: 2px;
+  --glass: rgba(14, 14, 20, .62);
+  --glass-red: rgba(30, 6, 11, .62);
+
+  /* four L-shaped corner brackets, drawn as backgrounds so they
+     never clash with the ::before / ::after effects already in use */
+  --hud-brackets:
+    linear-gradient(var(--hud), var(--hud)) top left / var(--hud-len) var(--hud-w) no-repeat,
+    linear-gradient(var(--hud), var(--hud)) top left / var(--hud-w) var(--hud-len) no-repeat,
+    linear-gradient(var(--hud), var(--hud)) top right / var(--hud-len) var(--hud-w) no-repeat,
+    linear-gradient(var(--hud), var(--hud)) top right / var(--hud-w) var(--hud-len) no-repeat,
+    linear-gradient(var(--hud), var(--hud)) bottom left / var(--hud-len) var(--hud-w) no-repeat,
+    linear-gradient(var(--hud), var(--hud)) bottom left / var(--hud-w) var(--hud-len) no-repeat,
+    linear-gradient(var(--hud), var(--hud)) bottom right / var(--hud-len) var(--hud-w) no-repeat,
+    linear-gradient(var(--hud), var(--hud)) bottom right / var(--hud-w) var(--hud-len) no-repeat;
+}
+
+/* ── Global atmosphere: CRT scanlines + vignette ─────── */
+html::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .025) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, .3) 100%);
+}
+
+/* ── Hero: perspective grid floor ─────────────────────── */
+.hero::before {
+  content: '';
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  bottom: 0;
+  height: 55%;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 42, 63, .3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 42, 63, .3) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(500px) rotateX(62deg);
+  transform-origin: bottom center;
+  -webkit-mask-image: linear-gradient(0deg, #000 0%, transparent 85%);
+  mask-image: linear-gradient(0deg, #000 0%, transparent 85%);
+  animation: hudFloor 2.4s linear infinite;
+}
+@keyframes hudFloor { to { background-position: 0 60px, 0 0; } }
+
+/* horizon glow line */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 55%;
+  height: 1px;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--hud), transparent);
+  box-shadow: 0 0 18px 2px rgba(255, 42, 63, .6);
+  opacity: .3;
+}
+
+/* hero text sits above the floor */
+.hero-content { z-index: 2; }
+
+/* ── Panels: glass + HUD corner brackets ──────────────── */
+.card, .stat-box, .mission-item, .mission-box, .mission-mini,
+.faq-item, .event-card, .prize-card, .partner-tier, .criteria-item,
+.spec-box, .reg-summary, .process-card, .countdown-cell,
+.steps-live .step, .info-box, .highlight-panel {
+  border-radius: 0;
+  border: 1px solid var(--hud-dim);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.card, .mission-box, .mission-mini, .prize-card, .partner-tier,
+.criteria-item, .reg-summary, .event-card {
+  background: var(--hud-brackets), var(--glass);
+}
+.stat-box, .countdown-cell, .spec-box, .process-card, .faq-item,
+.mission-item, .steps-live .step {
+  background: var(--hud-brackets), linear-gradient(160deg, var(--glass-red) 0%, var(--glass) 70%);
+}
+.info-box {
+  background: var(--hud-brackets), rgba(255, 214, 0, .05);
+  --hud: var(--yellow);
+  border-color: rgba(255, 214, 0, .3);
+}
+.highlight-panel { background: var(--hud-brackets), rgba(232, 0, 29, .06); }
+
+/* gold accents keep their colour */
+.prize-card.gold, .partner-tier.featured, .process-final { --hud: var(--yellow); }
+
+/* brackets grow on hover */
+.card, .stat-box, .mission-item, .mission-mini, .faq-item, .event-card,
+.prize-card, .partner-tier, .criteria-item, .spec-box, .process-card,
+.countdown-cell, .steps-live .step {
+  transition: --hud-len .3s ease, border-color .3s ease, box-shadow .3s ease, transform .3s cubic-bezier(.2, .8, .2, 1), opacity .6s ease;
+}
+.card:hover, .stat-box:hover, .mission-item:hover, .mission-mini:hover,
+.faq-item:hover, .event-card:hover, .prize-card:hover, .partner-tier:hover,
+.criteria-item:hover, .spec-box:hover, .process-card:hover,
+.countdown-cell:hover, .steps-live .step:hover {
+  --hud-len: 28px;
+  border-color: var(--hud);
+  box-shadow: 0 0 24px rgba(255, 42, 63, .35), inset 0 0 24px rgba(255, 42, 63, .1);
+}
+@property --hud-len { syntax: '<length>'; inherits: true; initial-value: 16px; }
+
+/* flip cards: brackets on both faces */
+.flip-face { border-radius: 0; border-color: var(--hud-dim); }
+.flip-face::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: var(--hud-brackets);
+}
+.events-grid { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 980px) { .events-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 680px) { .events-grid { grid-template-columns: 1fr; } }
+
+/* ── Grids get real gaps so each panel reads as a module ─ */
+.stats-row, .mission-boxes { background: none; border: none; gap: 1rem; }
+.mission-boxes { margin-top: 1rem; }
+
+/* ── Terminal-style labels ────────────────────────────── */
+.label {
+  font-family: 'Orbitron', monospace;
+  font-weight: 600;
+  font-size: .62rem;
+  letter-spacing: .3em;
+  color: var(--hud);
+  text-shadow: 0 0 8px rgba(255, 42, 63, .6);
+}
+.label::before { content: '// '; color: var(--yellow); }
+.label::after {
+  content: '_';
+  margin-left: .2em;
+  animation: heroCursorBlink 1s step-end infinite;
+}
+
+/* ── Section dividers: glowing scan line ──────────────── */
+.section + .section::before,
+.section[style*="border-top"]::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: min(1100px, 90%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--hud), transparent);
+  box-shadow: 0 0 12px rgba(255, 42, 63, .6);
+  opacity: .55;
+}
+
+/* ── Buttons: angled, neon edge ───────────────────────── */
+.btn-primary, .form-submit {
+  border-radius: 0;
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  background: linear-gradient(90deg, #e8001d, #ff2a3f);
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0, 0, 0, .4);
+  transition: background .2s ease, color .2s ease, transform .15s ease, filter .2s ease;
+}
+.btn-primary:hover, .form-submit:hover {
+  background: var(--yellow);
+  color: #000;
+  text-shadow: none;
+  filter: drop-shadow(0 0 14px rgba(255, 214, 0, .55));
+  transform: translateY(-2px);
+}
+.btn-outline {
+  border-radius: 0;
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  border: 1px solid var(--hud);
+  background: rgba(255, 42, 63, .06);
+  box-shadow: inset 0 0 14px rgba(255, 42, 63, .2);
+}
+.btn-outline:hover { background: rgba(255, 42, 63, .18); color: #fff; }
+.nav-register {
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  background: linear-gradient(90deg, #e8001d, #ff2a3f);
+  color: #fff;
+}
+.nav-register:hover { color: #000; }
+
+/* ── Pills: angled tags ───────────────────────────────── */
+.hero-eyebrow, .event-meta-pill, .hero-meta-item, .chip, .tier-badge {
+  border-radius: 0;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}
+.hero-eyebrow { padding-left: 1.4rem; padding-right: 1.6rem; }
+
+/* ── Nav: glass bar with a glowing baseline ───────────── */
+nav {
+  background: rgba(6, 6, 8, .72);
+  border-bottom: 1px solid var(--hud-dim);
+  box-shadow: 0 1px 0 rgba(255, 42, 63, .15), 0 10px 30px rgba(0, 0, 0, .5);
+}
+nav::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hud), transparent);
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  animation: navScan 4s linear infinite;
+}
+@keyframes navScan { from { background-position: -50% 0; } to { background-position: 150% 0; } }
+.nav-link { border-radius: 0; }
+
+/* ── Form fields: terminal inputs ─────────────────────── */
+.form-input, .form-select, .form-textarea {
+  border-radius: 0;
+  background: rgba(10, 10, 15, .8);
+  border: 1px solid var(--hud-dim);
+  font-family: 'Barlow', sans-serif;
+  outline: none;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--hud);
+  box-shadow: 0 0 0 1px var(--hud), 0 0 16px rgba(255, 42, 63, .35);
+}
+
+/* ── Numbers glow like instrument readouts ────────────── */
+.stat-num, .mission-mini .num, .mission-big-num, .countdown-num {
+  text-shadow: 0 0 12px rgba(255, 42, 63, .7), 0 0 28px rgba(255, 42, 63, .35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before, nav::after, .label::after { animation: none; }
+}
+
+/* ── Disabled links (e.g. Partner while it is closed) ─── */
+.is-disabled,
+.is-disabled:hover {
+  pointer-events: auto;
+  cursor: not-allowed;
+  opacity: .4;
+  transform: none;
+  letter-spacing: inherit;
+  background: none;
+  box-shadow: none;
+}
+.nav-link.is-disabled:hover { letter-spacing: .15em; color: var(--muted); }
+.nav-link.is-disabled::before, .nav-link.is-disabled::after { display: none; }
+.btn-outline.is-disabled:hover { border-color: var(--hud); color: var(--text); }
