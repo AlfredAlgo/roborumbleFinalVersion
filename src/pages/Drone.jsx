@@ -1,5 +1,4 @@
 import { useReveal } from '../hooks/useReveal';
-import TicketButton from '../components/TicketButton';
 import Footer from '../components/Footer';
 import droneracingBg from '../assets/droneracing.png';
 
@@ -10,11 +9,6 @@ export default function Drone({ onNavigate }) {
       <section className="event-hero" style={{ position: 'relative' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${droneracingBg})`, backgroundSize: 'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg,rgba(6,6,8,.92) 0%,rgba(6,6,8,.55) 50%,rgba(6,6,8,.45) 100%)' }} />
-
-        {/* Ticket button - top right */}
-        <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: '1.75rem' }}>
-          <TicketButton />
-        </div>
 
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <span className="label">Competition Category</span>

@@ -7,8 +7,7 @@ const links = [
   { id: 'robowars', label: 'Robo Wars' },
   { id: 'grandprix', label: 'Grand Prix' },
   { id: 'drone', label: 'Drone Racing' },
-  { id: 'technomania', label: 'Technomania' },
-  { id: 'partner', label: 'Partner' },
+  { id: 'partner', label: 'Partner', disabled: true },
 ];
 
 export default function Navbar({ currentPage, onNavigate }) {
@@ -37,7 +36,7 @@ export default function Navbar({ currentPage, onNavigate }) {
         <img
           src={logoImg}
           alt="Robo-Rumble"
-          style={{ height: '128px', width: 'auto', objectFit: 'contain' }}
+          style={{ height: '96px', width: 'auto', objectFit: 'contain' }}
         />
       </div>
 
@@ -45,8 +44,10 @@ export default function Navbar({ currentPage, onNavigate }) {
         {links.map((l) => (
           <span
             key={l.id}
-            className={`nav-link${currentPage === l.id ? ' active' : ''}`}
-            onClick={() => handleNav(l.id)}
+            className={`nav-link${currentPage === l.id ? ' active' : ''}${l.disabled ? ' is-disabled' : ''}`}
+            onClick={l.disabled ? undefined : () => handleNav(l.id)}
+            aria-disabled={l.disabled || undefined}
+            title={l.disabled ? 'Coming soon' : undefined}
           >
             {l.label}
           </span>

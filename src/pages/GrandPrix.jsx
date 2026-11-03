@@ -1,9 +1,8 @@
 import { useReveal } from '../hooks/useReveal';
-import TicketButton from '../components/TicketButton';
 import Footer from '../components/Footer';
 import TypedText from '../components/TypedText';
 import grandprixBg from '../assets/grandprix.png';
-import { SUBMISSION_FORM_URL } from '../constants';
+import { SUBMISSION_FORM_URL, EVENT_DATE_LABEL } from '../constants';
 
 export default function GrandPrix({ onNavigate }) {
   useReveal();
@@ -13,11 +12,6 @@ export default function GrandPrix({ onNavigate }) {
         <div style={{position:'absolute',inset:0,backgroundImage:`url(${grandprixBg})`,backgroundSize:'cover',backgroundPosition:'center center',backgroundRepeat:'no-repeat'}} />
         <div style={{position:'absolute',inset:0,background:'linear-gradient(0deg,rgba(6,6,8,.92) 0%,rgba(6,6,8,.55) 50%,rgba(6,6,8,.45) 100%)'}} />
 
-        {/* Ticket button - top right */}
-        <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: '1.75rem' }}>
-          <TicketButton />
-        </div>
-
         <div className="wrap" style={{position:'relative',zIndex:1}}>
           <span className="label">Competition Category</span>
           <h1>The Beginning of the<br />
@@ -25,7 +19,7 @@ export default function GrandPrix({ onNavigate }) {
           </h1>
           <p style={{color:'#c0c0d8'}}>No driver. No remote. Just pure code, clever engineering, and a miniature vehicle smart enough to navigate a track entirely on its own. Code the car. Win the race.</p>
           <div className="event-hero-meta">
-            {['Fully Autonomous','AI / Sensors / Code','Max 4 Members','17 October 2026'].map(t => (
+            {['Fully Autonomous','AI / Sensors / Code','Max 4 Members',EVENT_DATE_LABEL].map(t => (
               <div className="event-meta-pill" key={t}><span className="dot" />{t}</div>
             ))}
           </div>

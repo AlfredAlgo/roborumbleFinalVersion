@@ -1,10 +1,9 @@
 import { useReveal } from '../hooks/useReveal';
-import TicketButton from '../components/TicketButton';
 import Footer from '../components/Footer';
 import FaqItem from '../components/FaqItem';
 import TypedText from '../components/TypedText';
 import robotwarsBg from '../assets/robotwars.png';
-import { SUBMISSION_FORM_URL } from '../constants';
+import { SUBMISSION_FORM_URL, COMPONENT_DEADLINE, EVENT_DATE_LABEL } from '../constants';
 
 export default function RoboWars({ onNavigate }) {
   useReveal();
@@ -13,11 +12,6 @@ export default function RoboWars({ onNavigate }) {
       <section className="event-hero" style={{position:'relative'}}>
         <div style={{position:'absolute',inset:0,backgroundImage:`url(${robotwarsBg})`,backgroundSize:'cover',backgroundPosition:'center center',backgroundRepeat:'no-repeat'}} />
         <div style={{position:'absolute',inset:0,background:'linear-gradient(0deg,rgba(6,6,8,.92) 0%,rgba(6,6,8,.55) 50%,rgba(6,6,8,.45) 100%)'}} />
-
-        {/* Ticket button - top right */}
-        <div style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: '1.75rem' }}>
-          <TicketButton />
-        </div>
 
         <div className="wrap" style={{position:'relative',zIndex:1}}>
           
@@ -30,7 +24,7 @@ export default function RoboWars({ onNavigate }) {
           </h1>
 
           <div className="event-hero-meta">
-            {['Remote Control','Combat Arena','Max 4 Members','17 October 2026'].map(t => (
+            {['Remote Control','Combat Arena','Max 4 Members',EVENT_DATE_LABEL].map(t => (
               <div className="event-meta-pill" key={t}><span className="dot" />{t}</div>
             ))}
           </div>
@@ -133,7 +127,7 @@ export default function RoboWars({ onNavigate }) {
                   ['02','Select Robo Wars','Choose "Robo Wars" as your competition category during registration.'],
                   ['03','Join Discord','Connect at discord.gg/aeTpRuPzcb for all updates and rules.'],
                   ['04','Read the Rules','Download the full technical specification and ensure your robot complies.'],
-                  ['05','Build & Compete','Start early. Great robots take time. The arena opens 17 October 2026.'],
+                  ['05','Build & Compete',`Start early. Great robots take time. Secure your components ${COMPONENT_DEADLINE}. The arena opens ${EVENT_DATE_LABEL}.`],
                 ].map(([n,h,p], i) => (
                   <div
                     className="step"

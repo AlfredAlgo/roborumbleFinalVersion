@@ -4,11 +4,9 @@ import Home from './pages/Home';
 import RoboWars from './pages/RoboWars';
 import GrandPrix from './pages/GrandPrix';
 import Drone from './pages/Drone';
-import Technomania from './pages/Technomania';
-import Partner from './pages/Partner';
 import Register from './pages/Register';
 
-const pages = { home: Home, robowars: RoboWars, grandprix: GrandPrix, drone: Drone, technomania: Technomania, partner: Partner, register: Register };
+const pages = { home: Home, robowars: RoboWars, grandprix: GrandPrix, drone: Drone, register: Register };
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -21,7 +19,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    const titles = { home: 'ROBO-RUMBLE 2026 — Innovation in Motion', robowars: 'Robo Wars — ROBO-RUMBLE 2026', grandprix: 'RoboGrand Prix — ROBO-RUMBLE 2026', drone: 'Drone Racing — ROBO-RUMBLE 2026', technomania: 'Technomania — ROBO-RUMBLE 2026', partner: 'Partner With Us — ROBO-RUMBLE 2026', register: 'Register — ROBO-RUMBLE 2026' };
+    const titles = { home: 'ROBO-RUMBLE 2027 — Innovation in Motion', robowars: 'Robo Wars — ROBO-RUMBLE 2027', grandprix: 'RoboGrand Prix — ROBO-RUMBLE 2027', drone: 'Drone Racing — ROBO-RUMBLE 2027', register: 'Register — ROBO-RUMBLE 2027' };
     document.title = titles[currentPage] || titles.home;
   }, [currentPage]);
 
